@@ -7,13 +7,17 @@ import { HomeComponent } from './components/home/home.component';
 import { IslandComponent } from './components/util/island/island.component';
 import { FormsModule } from '@angular/forms';
 import { IslaComponent } from './components/isla/isla.component';
+import { PersonaComponent } from './isla/persona/persona.component';
+import { TecnologiaComponent } from './isla/tecnologia/tecnologia.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     IslandComponent,
-    IslaComponent
+    IslaComponent,
+    PersonaComponent,
+    TecnologiaComponent
   ],
   imports: [
     BrowserModule,
