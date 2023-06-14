@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit{
     this.isla = new Isla();
     this.isla.poblacion = 1;
     this.isla.tecnologia = 2;
+    this.isla.infra = 2;
   }
 
   ngOnInit(): void {

@@ -20,5 +20,6 @@ export class IslaComponent implements OnInit{
   ngOnInit() {
     this.isla.poblacion = this.status.poblacion;
     this.isla.tecnologia = this.status.tecnologia;
+    this.isla.infra = this.status.infra;
   }
 }
