@@ -1,5 +1,42 @@
 .objeto {
     position: relative;
-    top: 0;
-    right: 0;
+    top: 100vh;
+    right: 100vw;
+    z-index: 100;
+}
+.objeto-isla {
+    position: relative;
+    top: 100vh;
+    right: 100vw;
+    z-index: 102;
+}
+.objeto-cueva {
+    position: relative;
+    top: 100px;
+    right: 100px;
+    z-index: 101;
+}
+.objeto-fuego {
+    position: relative;
+    top: 100px;
+    right: 100px;
+    z-index: 102;
+}
+.objeto-lanza {
+    position: relative;
+    top: 100px;
+    right: 100px;
+    z-index: 103;
+}
+.objeto-pieles {
+    position: relative;
+    top: 100px;
+    right: 100px;
+    z-index: 104;
+}
+.objeto-pinturas {
+    position: relative;
+    top: 100px;
+    right: 100px;
+    z-index: 105;
 }
