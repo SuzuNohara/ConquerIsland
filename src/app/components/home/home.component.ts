@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Isla } from 'src/app/dto/Isla';
+import { Isla_Proto } from 'src/app/dto/Isla';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +8,10 @@ import { Isla } from 'src/app/dto/Isla';
 })
 export class HomeComponent implements OnInit{
 
-  public isla: Isla;
+  public isla: Isla_Proto;
 
   constructor() {
-    this.isla = new Isla();
+    this.isla = new Isla_Proto();
     this.isla.poblacion = 1;
     this.isla.tecnologia = 10;
     this.isla.infra = 1;

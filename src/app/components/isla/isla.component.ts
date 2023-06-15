@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Isla } from 'src/app/dto/Isla';
+import { Isla_Proto } from 'src/app/dto/Isla';
 
 @Component({
   selector: 'app-isla',
@@ -8,13 +8,13 @@ import { Isla } from 'src/app/dto/Isla';
 })
 export class IslaComponent implements OnInit{
 
-  public isla: Isla;
+  public isla: Isla_Proto;
 
-  @Input() status: Isla;
+  @Input() status: Isla_Proto;
 
   constructor() {
-    this.isla = new Isla();
-    this.status = new Isla();
+    this.isla = new Isla_Proto();
+    this.status = new Isla_Proto();
   }
 
   ngOnInit() {
