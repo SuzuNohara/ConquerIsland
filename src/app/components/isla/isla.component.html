@@ -1,30 +1,30 @@
 <div class="content">
     <!--ISLA-->
-    <div class="objeto" [ngStyle]="{'top': 47 + 'vh', 'left': 3 + 'vw'}" *ngIf="status.tecnologia > 1"><!-- La posicion del objeto se maneja desde este contenedor -->
+    <div class="objeto" [ngStyle]="{'top': 47 + 'vh', 'left': 3 + 'vw'}" *ngIf="statusP.tecnologia == 0"><!-- La posicion del objeto se maneja desde este contenedor -->
         <img [ngStyle]="{'width': 85 + 'vw'}" src="assets/edad1/isla.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
     <!--ISLA pequeña-->
-    <div class="objeto objeto-isla" [ngStyle]="{'top': 30 + 'vh', 'right': 10 + 'vw'}" *ngIf="status.tecnologia > 1"><!-- La posicion del objeto se maneja desde este contenedor -->
+    <div class="objeto objeto-isla" [ngStyle]="{'top': 30 + 'vh', 'right': 10 + 'vw'}" *ngIf="statusP.tecnologia == 0"><!-- La posicion del objeto se maneja desde este contenedor -->
         <img [ngStyle]="{'width': 10.5 + 'vw','height': 9.5 + 'vh' }" src="assets/edad1/isla.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
     <!--CUEVA-->
-    <div class="objeto objeto-cueva" [ngStyle]="{'top': 45 - (status.infra * 2.5) + 'vh', 'left': 15 - (status.infra * 2) + 'vw'}" *ngIf="status.infra >= 1"><!-- La posicion del objeto se maneja desde este contenedor -->
-        <img [ngStyle]="{'width': status.infra * 5 + 10 + 'vw' }" src="assets/edad1/cueva.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
+    <div class="objeto objeto-cueva" [ngStyle]="{'top': 45 - (statusCI.infraestructura * 2.5) + 'vh', 'left': 15 - (statusCI.infraestructura * 2) + 'vw'}" *ngIf="statusCI.infraestructura >= 1"><!-- La posicion del objeto se maneja desde este contenedor -->
+        <img [ngStyle]="{'width': statusCI.infraestructura * 5 + 10 + 'vw' }" src="assets/edad1/cueva.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
     <!--Fuego-->
-    <div class="objeto objeto-fuego" [ngStyle]="{'top': 60 + 'vh', 'left': 17 + 'vw'}" *ngIf="status.tecnologia > 3"><!-- La posicion del objeto se maneja desde este contenedor -->
+    <div class="objeto objeto-fuego" [ngStyle]="{'top': 60 + 'vh', 'left': 17 + 'vw'}" *ngIf="statusP.tecnologia > 3"><!-- La posicion del objeto se maneja desde este contenedor -->
         <img [ngStyle]="{'width': 14 + 'vh'}" src="assets/edad1/fuego.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
     <!--LANZA-->
-    <div class="objeto objeto-lanza" [ngStyle]="{'top': 75 + 'vh', 'left': 38 + 'vw'}" *ngIf="status.tecnologia > 5"><!-- La posicion del objeto se maneja desde este contenedor -->
+    <div class="objeto objeto-lanza" [ngStyle]="{'top': 75 + 'vh', 'left': 38 + 'vw'}" *ngIf="statusP.tecnologia > 5"><!-- La posicion del objeto se maneja desde este contenedor -->
         <img [ngStyle]="{'width': 18 + 'vh'}" src="assets/edad1/lanza.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
     <!--Pieles-->
-    <div class="objeto objeto-pieles" [ngStyle]="{'top': 60 + 'vh', 'left': 68 + 'vw'}" *ngIf="status.tecnologia > 7"><!-- La posicion del objeto se maneja desde este contenedor -->
+    <div class="objeto objeto-pieles" [ngStyle]="{'top': 60 + 'vh', 'left': 68 + 'vw'}" *ngIf="statusP.tecnologia > 7"><!-- La posicion del objeto se maneja desde este contenedor -->
         <img [ngStyle]="{'width': 18 + 'vh'}" src="assets/edad1/pieles.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
     <!--Pinturas-->
-    <div class="objeto objeto-pinturas" [ngStyle]="{'top': 50 + 'vh', 'left': 68 + 'vw'}" *ngIf="status.tecnologia > 9"><!-- La posicion del objeto se maneja desde este contenedor -->
+    <div class="objeto objeto-pinturas" [ngStyle]="{'top': 50 + 'vh', 'left': 68 + 'vw'}" *ngIf="statusP.tecnologia > 9"><!-- La posicion del objeto se maneja desde este contenedor -->
         <img [ngStyle]="{'width': 15 + 'vh'}" src="assets/edad1/pintura.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
 </div>

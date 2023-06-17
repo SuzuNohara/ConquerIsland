@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Isla_Proto } from 'src/app/dto/Isla';
+import { Controles_Isla, Isla, Produccion } from 'src/app/dto/Isla';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +8,17 @@ import { Isla_Proto } from 'src/app/dto/Isla';
 })
 export class HomeComponent implements OnInit{
 
-  public isla: Isla_Proto;
+  public isla: Isla;
+  public produccion: Produccion;
+  public controIsla: Controles_Isla;
 
   constructor() {
-    this.isla = new Isla_Proto();
+    this.isla = new Isla();
+    this.produccion = new Produccion();
+    this.controIsla = new Controles_Isla();
     this.isla.poblacion = 1;
-    this.isla.tecnologia = 10;
-    this.isla.infra = 1;
+    this.produccion.tecnologia = 10;
+    this.controIsla.infraestructura = 1;
   }
 
   ngOnInit(): void {

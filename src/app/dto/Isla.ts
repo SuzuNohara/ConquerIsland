@@ -1,4 +1,4 @@
-export class Isla_Proto {
+/*export class Isla {
     public poblacion: number;
     public tecnologia: number;
     public infra: number;
@@ -8,7 +8,7 @@ export class Isla_Proto {
         this.tecnologia = 0;
         this.infra = 0;
     }
-}
+}*/
 
 export class Isla {
     public dinero: number;// mapeable ()
