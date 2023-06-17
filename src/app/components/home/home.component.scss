@@ -379,3 +379,18 @@ main .textos-header a {
     border-radius: 25px;
     overflow: hidden;
 }
+
+.abs{
+    position: absolute;
+    z-index: 200;
+}
+
+.info{
+    right: 2vw;
+    bottom: 2vh;
+}
+
+.act{
+    right: 12vw;
+    bottom: 2vh;
+}

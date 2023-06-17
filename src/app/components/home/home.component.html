@@ -10,7 +10,7 @@
         <li><a href="#">About</a></li>
       </ul>
     </nav>
-    <a class="btn" href="#"><button>Contact</button></a>
+    <a class="btn"><button>Contact</button></a>
     <a (click)="openNav()" class="menu" href="#"><button>Menu</button></a>
 
     <div id="mobile-menu" class="overlay">
@@ -46,6 +46,102 @@
   </div> -->
   <div class="i-content">
     <app-isla [status]="isla"></app-isla>
+    <a class="btn abs info"><button data-bs-toggle="modal" data-bs-target="#actions_modal">Info</button></a>
+    <a class="btn abs act"><button data-bs-toggle="modal" data-bs-target="#info_modal">Actions</button></a>
   </div>
 
+</div>
+
+<div class="modal modal-dialog modal-lg fade" id="actions_modal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h2>Informacion basica</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Informacion</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td>Dinero</td>
+              <td>{{ isla.dinero }}</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td colspan="2">Larry the Bird</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2>Inversion</h2>
+
+        <h2>Produccion interna</h2>
+
+        <!-- public dinero: number;// mapeable ()
+        public recursos_naturales: number;// mapeable (comida, animales, maiz, verduras)
+        public poblacion: number;// mapeable (personas distribuidas en la isla) // sonido
+        public reservas_recursos: number;// mapeable // sonido
+        public reservas_dinero: number;// mapeable // sonido
+        public turno: number;// mapeable // sonido
+        public isla_viva: boolean;// mapeable
+        public inversion: Controles_Isla; -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-dialog modal-lg fade" id="info_modal" tabindex="-1"  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">Inversion en Infraestructura</label>
+          <input [(ngModel)]="actions.Infraestructura" type="number" min="0" max="10" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Inversion en Infraestructura</label>
+          <input [(ngModel)]="actions.educacion" type="number" min="0" max="10" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Inversion en Infraestructura</label>
+          <input [(ngModel)]="actions.inversion_interna" type="number" min="0" max="10" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Inversion en Infraestructura</label>
+          <input type="number" min="0" max="10" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Inversion en Infraestructura</label>
+          <input type="number" min="0" max="10" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Inversion en Infraestructura</label>
+          <input type="number" min="0" max="10" class="form-control">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#info_modal" data-bs-toggle="modal" (click)="terminarTurno()">Terminar Turno</button>
+      </div>
+    </div>
+  </div>
 </div>
