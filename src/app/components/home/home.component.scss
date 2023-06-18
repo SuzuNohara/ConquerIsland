@@ -411,6 +411,7 @@ color: white;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #9673FF;
 }
+
 th, td{
     color: #fff;
 }
@@ -419,4 +420,20 @@ th, td{
 }
 .table{
     --bs-table-hover-color: #05F2C7;
+}
+.form-control{
+    background-color: #0E0B1E;
+    border: 1px solid #05F2C7;
+}
+
+input{
+    margin-left: 10%;
+    width: 80%;
+    color: white;
+}
+label{
+   margin-left: 15%;
+}
+.form-control:focus {
+    color: white;
 }
