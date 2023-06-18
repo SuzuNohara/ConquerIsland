@@ -394,3 +394,26 @@ main .textos-header a {
     right: 12vw;
     bottom: 2vh;
 }
+.modal-content{ 
+background-color: #0E0B1E;
+color: white;
+}
+.btn-close{
+    background-color: #bdbdddb3;
+}
+.btn-outline-primary{
+    --bs-btn-color: white;
+    --bs-btn-border-color: #3CC4FF;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #9673FF;
+    --bs-btn-hover-border-color: #5194D8;
+    --bs-btn-focus-shadow-rgb: 13, 110, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #9673FF;
+}
+th, td{
+    color: #fff;
+}
+.title{
+    color:#9673FF;
+}

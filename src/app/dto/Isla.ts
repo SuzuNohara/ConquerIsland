@@ -1,15 +1,3 @@
-/*export class Isla {
-    public poblacion: number;
-    public tecnologia: number;
-    public infra: number;
-
-    constructor() {
-        this.poblacion = 0;
-        this.tecnologia = 0;
-        this.infra = 0;
-    }
-}*/
-
 export class Isla {
     public dinero: number;// mapeable ()
     public recursos_naturales: number;// mapeable (comida, animales, maiz, verduras)
