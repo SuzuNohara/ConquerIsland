@@ -66,6 +66,8 @@ export class GameService {
       Isla_actual.inversion.produccion_interna.alimentos_ex +=
         Isla_actual.inversion.infraestructura + Accion.Infraestructura;
     }
+
+    Isla_actual.inversion.infraestructura += Accion.Infraestructura;
   }
 
   public Educacion(Isla_actual: Isla, Accion: Acciones) {
@@ -91,6 +93,8 @@ export class GameService {
       Isla_actual.inversion.produccion_interna.tecnologia_ex +=
         Accion.educacion;
     }
+
+    Isla_actual.inversion.educacion += Accion.educacion;
   }
 
   public Inversion_int(Isla_actual: Isla, Accion: Acciones) {
@@ -130,6 +134,8 @@ export class GameService {
         Isla_actual.reservas_dinero = 10;
       }
     }
+
+    Isla_actual.inversion.inversion_interna += Isla_actual.inversion.inversion_interna;
   }
 
   public Produccion_int(Isla_actual: Isla, Accion: Acciones) {
@@ -155,11 +161,8 @@ export class GameService {
       Isla_actual.reservas_recursos -= Accion.tecnologia;
     }
 
-    if (
-      Isla_actual.inversion.educacion >
-      Isla_actual.inversion.produccion_interna.tecnologia
-    ) {
-      Isla_actual.inversion.produccion_interna.tecnologia += Accion.tecnologia;
+    if (Isla_actual.inversion.produccion_interna.tecnologia < Isla_actual.inversion.educacion) {
+      Isla_actual.inversion.produccion_interna.tecnologia += Accion.tecnologia; //Solo hace el aumento si tengo la educacion necesaria
     }
     // se puede invertir en tecnologia
     // no puedo inveritr mas de nivel educativo
@@ -189,6 +192,12 @@ export class GameService {
       } else {
         Isla_actual.reservas_recursos -= Accion.militar;
       }
+      
+      if (Isla_actual.inversion.produccion_interna.militar<10){
+        Isla_actual.inversion.produccion_interna.militar += Accion.militar;
+      }else{
+        Isla_actual.inversion.produccion_interna.militar_ex += Accion.militar;
+      }
     }
   }
 
@@ -204,6 +213,8 @@ export class GameService {
     } else {
       Isla_actual.reservas_recursos -= Accion.servicios;
     }
+
+    Isla_actual.inversion.produccion_interna.servicios += Accion.servicios;
   }
 
   public Poblacion(Isla_actual: Isla) {

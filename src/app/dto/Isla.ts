@@ -6,7 +6,6 @@ export class Isla {
     public reservas_dinero: number;// mapeable // sonido
     public turno: number;// mapeable // sonido
     public isla_viva: boolean;// mapeable
-    public accion_valida: boolean;
     public inversion: Controles_Isla;
 
     constructor() {
