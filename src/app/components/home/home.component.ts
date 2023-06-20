@@ -34,13 +34,35 @@ export class HomeComponent implements OnInit{
       mobileMenu.style.width = "100%";
     }
   }
+  
   closeNav(): void {
     const mobileMenu = document.getElementById("mobile-menu");
     if (mobileMenu) {
       mobileMenu.style.width = "0%";
     }
   }
-
+  openCity(event: MouseEvent, cityName: string): void {
+    const currentTarget = event.currentTarget as HTMLElement;
+    if (currentTarget) {
+      currentTarget.className += " active";
+    }
+    
+    const tabcontent = document.getElementsByClassName("tabcontent") as HTMLCollectionOf<HTMLElement>;
+    for (let i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    
+    const tablinks = document.getElementsByClassName("tablinks") as HTMLCollectionOf<HTMLElement>;
+    for (let i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    
+    const cityElement = document.getElementById(cityName);
+    if (cityElement) {
+      cityElement.style.display = "block";
+    }
+  }
+  
   public terminarTurno(){
     // el usuario selecciona sus acciones del turno
     // se llama la funcion de juego para que procese el turno
