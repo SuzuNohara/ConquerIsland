@@ -16,7 +16,6 @@ export class Isla {
         this.reservas_dinero = 0;
         this.turno = 1;
         this.isla_viva = true;
-        this.accion_valida = true;
         this.inversion = new Controles_Isla();
     }
 }
