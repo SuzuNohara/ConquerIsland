@@ -59,15 +59,117 @@
         <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Turno: <span class="badge bg-secondary">{{ isla.turno }}</span></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body"><br><br>
-        <div class="btn-group top-50 start-50 translate-middle" role="group" aria-label="Basic outlined example">
-          <button type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="modal" data-bs-target="#infobasic">Informacion Basica</button>
-          <button type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="modal" data-bs-target="#Inver">Inversion</button>
-          <button type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="modal" data-bs-target="#Produc">Produccion interna</button>
-        </div>
+      <div class="modal-body">
+      <div class="tab">
+        <button class="tablinks" (click)="openCity($event, 'InfBas')">Informacion</button>
+        <button class="tablinks" (click)="openCity($event, 'Inver')">Inversion</button>
+        <button class="tablinks" (click)="openCity($event, 'Produc')">Produccion</button>
+      </div>
+      
+      <div id="InfBas" class="tabcontent">
+        <h3>Informacion Basica</h3>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="col">Poblacion</th>
+              <td>{{ isla.poblacion }}</td>
+            </tr>
+            <tr>
+              <th>Dinero</th>
+              <td>{{ isla.dinero }}</td>
+            </tr>
+            <tr>
+              <th>Dinero Excedente</th>
+              <td>{{ isla.reservas_dinero}}</td>
+            </tr>
+            <tr>
+              <th>Recursos Naturales</th>
+              <td>{{ isla.recursos_naturales }}</td>
+            </tr>
+            <tr>
+              <th>Recursos Naturales Excedente</th>
+              <td>{{ isla.reservas_recursos}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div id="Inver" class="tabcontent">
+        <h3>Inversion</h3>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="col">Infraestructura</th>
+              <td>{{ isla.inversion.infraestructura }}</td>
+            </tr>
+            <tr>
+              <th>Educacion</th>
+              <td>{{  isla.inversion.educacion}}</td>
+            </tr>
+            <tr>
+              <th>Interna</th>
+              <td>{{  isla.inversion.inversion_interna }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div id="Produc" class="tabcontent">
+        <h3>Produccion interna</h3>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="col">Alimentos</th>
+              <td>{{ isla.inversion.produccion_interna.alimentos }}</td>
+            </tr>
+            <tr>
+              <th>Tecnologia</th>
+              <td>{{  isla.inversion.produccion_interna.tecnologia}}</td>
+            </tr>
+            <tr>
+              <th>Militar</th>
+              <td>{{  isla.inversion.produccion_interna.militar }}</td>
+            </tr>
+            <tr>
+              <th>Servicios</th>
+              <td>{{  isla.inversion.produccion_interna.servicios }}</td>
+            </tr>
+            <tr>
+              <th>Alimentos Excedentes</th>
+              <td>{{  isla.inversion.produccion_interna.alimentos_ex }}</td>
+            </tr>
+            <tr>
+              <th>Tecnologia Excedentes</th>
+              <td>{{  isla.inversion.produccion_interna.tecnologia_ex }}</td>
+            </tr>
+            <tr>
+              <th>Militar Excedentes</th>
+              <td>{{  isla.inversion.produccion_interna.militar_ex }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
       </div>
     </div>
   </div>
@@ -113,136 +215,3 @@
   </div>
 </div>
 
-<!--Modales-->
-        <!--Modal Informacion Basica-->
-        <div class="modal fade" id="infobasic" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5 title" id="staticBackdropLabel">Informacion Basica</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th scope="col">Nombre</th>
-                      <th scope="col">Valor</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="col">Poblacion</th>
-                      <td>{{ isla.poblacion }}</td>
-                    </tr>
-                    <tr>
-                      <th>Dinero</th>
-                      <td>{{ isla.dinero }}</td>
-                    </tr>
-                    <tr>
-                      <th>Recursos Naturales</th>
-                      <td>{{ isla.recursos_naturales }}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="modal-footer">
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        
-        <!--Modal Inversion-->
-        <div class="modal fade" id="Inver" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5 title" id="staticBackdropLabel">Inversion</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th scope="col">Nombre</th>
-                      <th scope="col">Valor</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="col">Poblacion</th>
-                      <td>{{ isla.poblacion }}</td>
-                    </tr>
-                    <tr>
-                      <th>Dinero</th>
-                      <td>{{ isla.dinero }}</td>
-                    </tr>
-                    <tr>
-                      <th>Recursos Naturales</th>
-                      <td>{{ isla.recursos_naturales }}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="modal-footer">
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-                <!--Modal Produccion interna-->
-                <div class="modal fade" id="Produc" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5 title" id="staticBackdropLabel">Produccion interna</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <table class="table table-hover">
-                          <thead>
-                            <tr>
-                              <th scope="col">Nombre</th>
-                              <th scope="col">Valor</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="col">Alimentos</th>
-                              <td>{{ isla.inversion.produccion_interna.alimentos }}</td>
-                            </tr>
-                            <tr>
-                              <th>Tecnologia</th>
-                              <td>{{  isla.inversion.produccion_interna.tecnologia}}</td>
-                            </tr>
-                            <tr>
-                              <th>Militar</th>
-                              <td>{{  isla.inversion.produccion_interna.militar }}</td>
-                            </tr>
-                            <tr>
-                              <th>Servicios</th>
-                              <td>{{  isla.inversion.produccion_interna.servicios }}</td>
-                            </tr>
-                            <tr>
-                              <th>Alimentos Excedentes</th>
-                              <td>{{  isla.inversion.produccion_interna.alimentos_ex }}</td>
-                            </tr>
-                            <tr>
-                              <th>Tecnologia Excedentes</th>
-                              <td>{{  isla.inversion.produccion_interna.tecnologia_ex }}</td>
-                            </tr>
-                            <tr>
-                              <th>Militar Excedentes</th>
-                              <td>{{  isla.inversion.produccion_interna.militar_ex }}</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div class="modal-footer">
-                      </div>
-                    </div>
-                  </div>
-                </div>
