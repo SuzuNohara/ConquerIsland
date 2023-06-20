@@ -135,7 +135,7 @@ export class GameService {
       }
     }
 
-    Isla_actual.inversion.inversion_interna += Isla_actual.inversion.inversion_interna;
+    Isla_actual.inversion.inversion_interna += Accion.inversion_interna;
   }
 
   public Produccion_int(Isla_actual: Isla, Accion: Acciones) {
