@@ -17,8 +17,6 @@ export class GameService {
     if (Isla_actual.poblacion == 0) {
       Isla_actual.isla_viva = false;
     }
-
-    Isla_actual.turno++;
     
     if (Isla_actual.recursos_naturales <= 10) {
       Isla_actual.recursos_naturales * 1.3;
@@ -32,6 +30,8 @@ export class GameService {
         Isla_actual.reservas_recursos=10;
       }
     }
+
+    Isla_actual.turno++;
 
     return Isla_actual;
   }
@@ -66,6 +66,8 @@ export class GameService {
       Isla_actual.inversion.produccion_interna.alimentos_ex +=
         Isla_actual.inversion.infraestructura + Accion.Infraestructura;
     }
+
+    Isla_actual.inversion.infraestructura+=Accion.Infraestructura;
   }
 
   public Educacion(Isla_actual: Isla, Accion: Acciones) {
@@ -91,6 +93,8 @@ export class GameService {
       Isla_actual.inversion.produccion_interna.tecnologia_ex +=
         Accion.educacion;
     }
+
+    Isla_actual.inversion.educacion += Accion.educacion;
   }
 
   public Inversion_int(Isla_actual: Isla, Accion: Acciones) {
@@ -130,6 +134,8 @@ export class GameService {
         Isla_actual.reservas_dinero = 10;
       }
     }
+
+    Isla_actual.inversion.inversion_interna += Accion.inversion_interna;
   }
 
   public Produccion_int(Isla_actual: Isla, Accion: Acciones) {
@@ -204,6 +210,8 @@ export class GameService {
     } else {
       Isla_actual.reservas_recursos -= Accion.servicios;
     }
+
+    Isla_actual.inversion.produccion_interna.servicios += Accion.servicios;
   }
 
   public Poblacion(Isla_actual: Isla) {
