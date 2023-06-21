@@ -8,15 +8,15 @@
         <img [ngStyle]="{'width': 10.5 + 'vw','height': 9.5 + 'vh' }" src="assets/edad1/isla.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
         <!--Dinero-->
-        <div class="objeto objeto-dinero" [ngStyle]="{'top': 15.7 + 'vh', 'right': 10 + 'vw'}" *ngIf="isla.dinero >=1 && isla.dinero<5"><!-- La posicion del objeto se maneja desde este contenedor -->
+        <div class="objeto objeto-dinero" [ngStyle]="{'top': 15.7 + 'vh', 'right': 10 + 'vw'}" *ngIf="isla.dinero >=1 && isla.dinero<=5"><!-- La posicion del objeto se maneja desde este contenedor -->
             <img [ngStyle]="{'width': 4 + 'vw' }" src="assets/iconos/dinero/op3.1.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
         </div>
-        <div class="objeto objeto-dinero" [ngStyle]="{'top': 15.7 + 'vh', 'right': 16 + 'vw'}" *ngIf="isla.dinero>5 && isla.dinero <=10"><!-- La posicion del objeto se maneja desde este contenedor -->
+        <div class="objeto objeto-dinero" [ngStyle]="{'top': 15.7 + 'vh', 'right': 16 + 'vw'}" *ngIf="isla.dinero>=5 && isla.dinero <=10"><!-- La posicion del objeto se maneja desde este contenedor -->
             <img [ngStyle]="{'width': 4 + 'vw' }" src="assets/iconos/dinero/op3.1.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
         </div>
     <!--CUEVA-->
-    <div class="objeto objeto-cueva" [ngStyle]="{'top': 45 - (isla.inversion.infraestructura * 2) + 'vh', 'left': 15 - (isla.inversion.infraestructura * 2) + 'vw'}" *ngIf="isla.inversion.infraestructura >= 1"><!-- La posicion del objeto se maneja desde este contenedor -->
-        <img [ngStyle]="{'width': isla.inversion.infraestructura * 2 + 10 + 'vw' }" src="assets/edad1/cueva.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
+    <div class="objeto objeto-cueva" [ngStyle]="{'top': 45 - (isla.inversion.infraestructura * 2) + 'vh', 'left': 25 - (isla.inversion.infraestructura * 2) + 'vw'}" *ngIf="isla.inversion.infraestructura >= 1"><!-- La posicion del objeto se maneja desde este contenedor -->
+        <img [ngStyle]="{'width': isla.inversion.infraestructura * 2 + 5 + 'vw' }" src="assets/edad1/cueva.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
     <!--Fuego-->
     <div class="objeto objeto-fuego" [ngStyle]="{'top': 71.5 + 'vh', 'left': 9.5 + 'vw'}" *ngIf="isla.inversion.produccion_interna.tecnologia > 3"><!-- La posicion del objeto se maneja desde este contenedor -->
