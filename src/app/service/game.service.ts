@@ -82,7 +82,9 @@ export class GameService {
         Isla_actual.inversion.infraestructura + Accion.Infraestructura;
     }
 
-    Isla_actual.inversion.infraestructura += Accion.Infraestructura;
+    if (Isla_actual.inversion.infraestructura<10){
+      Isla_actual.inversion.infraestructura += Accion.Infraestructura;
+    }
   }
 
   public Educacion(Isla_actual: Isla, Accion: Acciones) {
@@ -118,7 +120,9 @@ export class GameService {
         Accion.educacion;
     }
 
-    Isla_actual.inversion.educacion += Accion.educacion;
+    if (Isla_actual.inversion.educacion<10){
+      Isla_actual.inversion.educacion += Accion.educacion;
+    }
   }
 
   public Inversion_int(Isla_actual: Isla, Accion: Acciones) {
@@ -168,7 +172,9 @@ export class GameService {
       }
     }
 
-    Isla_actual.inversion.inversion_interna += Accion.inversion_interna;
+    if (Isla_actual.inversion.inversion_interna<10){
+      Isla_actual.inversion.inversion_interna += Accion.inversion_interna;
+    }
   }
 
   public Produccion_int(Isla_actual: Isla, Accion: Acciones) {
@@ -205,7 +211,7 @@ export class GameService {
 
     Isla_actual.inversion.produccion_interna.alimentos -= Accion.tecnologia;
 
-    if (Isla_actual.inversion.produccion_interna.tecnologia < Isla_actual.inversion.educacion) {
+    if (Isla_actual.inversion.produccion_interna.tecnologia < Isla_actual.inversion.educacion && Isla_actual.inversion.produccion_interna.tecnologia < 10) {
       Isla_actual.inversion.produccion_interna.tecnologia += Accion.tecnologia; //Solo hace el aumento si tengo la educacion necesaria
     }
     // se puede invertir en tecnologia
@@ -251,7 +257,7 @@ export class GameService {
       
       if (Isla_actual.inversion.produccion_interna.militar<10){
         Isla_actual.inversion.produccion_interna.militar += Accion.militar;
-      }else{
+      }else if (Isla_actual.inversion.produccion_interna.militar_ex<10){
         Isla_actual.inversion.produccion_interna.militar_ex += Accion.militar;
       }
     }
@@ -288,7 +294,9 @@ export class GameService {
       Isla_actual.inversion.produccion_interna.alimentos_ex += (Isla_actual.inversion.produccion_interna.servicios + Accion.servicios);
      }
 
-    Isla_actual.inversion.produccion_interna.servicios += Accion.servicios;
+     if (Isla_actual.inversion.produccion_interna.servicios<10){
+      Isla_actual.inversion.produccion_interna.servicios += Accion.servicios;
+    }
   }
 
   public Poblacion(Isla_actual: Isla) {
