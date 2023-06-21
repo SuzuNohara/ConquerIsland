@@ -26,7 +26,6 @@ export class GameService {
     }
 
     Isla_actual.turno++;
-
     return Isla_actual;
   }
 
@@ -36,8 +35,7 @@ export class GameService {
     sumaAcciones = Accion.Infraestructura + Accion.educacion + Accion.inversion_interna + Accion.militar + Accion.servicios + Accion.tecnologia;
     sumaDinero = Isla_actual.dinero + 5;
 
-    if(sumaAcciones < sumaDinero || sumaAcciones < Isla_actual.recursos_naturales){
-      console.log("No tienes más dinero");
+    if(sumaAcciones > sumaDinero || sumaAcciones > Isla_actual.recursos_naturales){
       return false;
     }else{
       return true;
