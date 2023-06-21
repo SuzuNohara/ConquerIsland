@@ -72,16 +72,16 @@ export class HomeComponent implements OnInit{
     // se llama la funcion de juego para que procese el turno
     if(this.game.Comprobar(this.isla, this.actions)){
       this.isla = this.game.turno(this.isla, this.actions);
+      this.isComp.updateIsla(this.isla);
+      this.actions = new Acciones();
+      if(!this.isla.isla_viva){
+        this.gameOver();
+      }
     }else{
       alert("No tienes los recursos suficientes para realizar esta accion");
     }
     // se obtiene la isla con informacion actualizada
     // esta informacion se manda al componente de isla
-    this.isComp.updateIsla(this.isla);
-    this.actions = new Acciones();
-    if(!this.isla.isla_viva){
-      this.gameOver();
-    }
   }
 
   public newGame(){
