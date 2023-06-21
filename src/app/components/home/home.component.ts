@@ -70,7 +70,11 @@ export class HomeComponent implements OnInit{
   public terminarTurno(){
     // el usuario selecciona sus acciones del turno
     // se llama la funcion de juego para que procese el turno
-    this.isla = this.game.turno(this.isla, this.actions);
+    if(this.game.Comprobar(this.isla, this.actions)){
+      this.isla = this.game.turno(this.isla, this.actions);
+    }else{
+      alert("No tienes los recursos suficientes para realizar esta accion");
+    }
     // se obtiene la isla con informacion actualizada
     // esta informacion se manda al componente de isla
     this.isComp.updateIsla(this.isla);
@@ -89,6 +93,47 @@ export class HomeComponent implements OnInit{
 
   public gameOver(){
     this.banner = true;
+  }
+
+  public upval(act: number, inc: number){
+    switch(act){
+      case 0:
+        this.actions.Infraestructura += inc;
+        if(this.actions.Infraestructura < 0){
+          this.actions.Infraestructura = 0;
+        }
+      break;
+      case 1:
+        this.actions.educacion += inc;
+        if(this.actions.educacion < 0){
+          this.actions.educacion = 0;
+        }
+      break;
+      case 2:
+        this.actions.inversion_interna += inc;
+        if(this.actions.inversion_interna < 0){
+          this.actions.inversion_interna = 0;
+        }
+      break;
+      case 3:
+        this.actions.tecnologia += inc;
+        if(this.actions.tecnologia < 0){
+          this.actions.tecnologia = 0;
+        }
+      break;
+      case 4:
+        this.actions.militar += inc;
+        if(this.actions.militar < 0){
+          this.actions.militar = 0;
+        }
+      break;
+      case 5:
+        this.actions.servicios += inc;
+        if(this.actions.servicios < 0){
+          this.actions.servicios = 0;
+        }
+      break;
+    }
   }
 }
 
