@@ -283,9 +283,9 @@ export class GameService {
     }
 
      if(Isla_actual.inversion.produccion_interna.alimentos<10){   //Servicios me genera alimentos
-      Isla_actual.inversion.produccion_interna.alimentos += Isla_actual.inversion.produccion_interna.servicios;
+      Isla_actual.inversion.produccion_interna.alimentos += (Isla_actual.inversion.produccion_interna.servicios + Accion.servicios);
      }else if(Isla_actual.inversion.produccion_interna.alimentos_ex<10){
-      Isla_actual.inversion.produccion_interna.alimentos_ex += Isla_actual.inversion.produccion_interna.servicios;
+      Isla_actual.inversion.produccion_interna.alimentos_ex += (Isla_actual.inversion.produccion_interna.servicios + Accion.servicios);
      }
 
     Isla_actual.inversion.produccion_interna.servicios += Accion.servicios;
