@@ -5,21 +5,17 @@
     </div>
     <nav>
       <ul class="nav-links">
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">About</a></li>
+        <li><a>Guia de Juego</a></li>
       </ul>
     </nav>
-    <a class="btn"><button>Contact</button></a>
+    <a class="btn"><button (click)="newGame()">New Game</button></a>
     <a (click)="openNav()" class="menu" href="#"><button>Menu</button></a>
 
     <div id="mobile-menu" class="overlay">
       <a (click)="closeNav()" href="" class="close">&times;</a>
       <div class="overlay-content">
-        <a href="#">Services</a>
-        <a href="#">Projects</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <a>Guia de Juego</a>
+        <a (click)="newGame()">New Game</a>
       </div>
     </div>
   </header>
@@ -215,3 +211,7 @@
   </div>
 </div>
 
+
+<div class="banner" *ngIf="banner"></div>
+<img *ngIf="startgame" src="assets/game/binev.png" class="game" alt="" srcset="">
+<img *ngIf="!isla.isla_viva" src="assets/game/gameover.png" class="gameover" alt="" srcset="">

@@ -491,3 +491,29 @@ label{
     border: 1px solid #ccc;
     border-top: none;
   }
+
+.banner{
+    position: absolute;
+    width: 100vw;
+    height: 90vh;
+    background-color: #0E0B1E;
+    opacity: 0.8;
+    top: 10vh;
+    left: 0px;
+    z-index: 300;
+}
+
+.gameover{
+    position: absolute;
+    width: 55vw;
+    top: 20vh;
+    left: 20vw;
+    z-index: 301;
+}
+.game{
+    position: absolute;
+    width: 90vw;
+    top: 24vh;
+    left: 5vw;
+    z-index: 301;
+}

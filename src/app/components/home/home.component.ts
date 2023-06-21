@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit{
 
   public isla: Isla;
   public actions: Acciones;
+  public banner: boolean;
+  public startgame: boolean;
   @ViewChild(IslaComponent) isComp!: IslaComponent;
 
   constructor(private game: GameService) {
@@ -20,8 +22,10 @@ export class HomeComponent implements OnInit{
     this.isla.inversion = new Controles_Isla();
     this.isla.inversion.produccion_interna = new Produccion();
     this.isla.poblacion = 1;
-    this.isla.inversion.produccion_interna.tecnologia = 10;
-    this.isla.inversion.infraestructura = 1;
+    this.isla.inversion.produccion_interna.tecnologia = 0;
+    this.isla.inversion.infraestructura = 0;
+    this.banner = true;
+    this.startgame = true;
   }// funcion de isla inicial (parametros iniciales de la isla)
 
   ngOnInit(): void {
@@ -70,6 +74,21 @@ export class HomeComponent implements OnInit{
     // se obtiene la isla con informacion actualizada
     // esta informacion se manda al componente de isla
     this.isComp.updateIsla(this.isla);
+    this.actions = new Acciones();
+    if(!this.isla.isla_viva){
+      this.gameOver();
+    }
+  }
+
+  public newGame(){
+    this.banner = false;
+    this.startgame = false;
+    this.isla = new Isla();
+    this.actions = new Acciones();
+  }
+
+  public gameOver(){
+    this.banner = true;
   }
 }
 

@@ -4,27 +4,71 @@
         <img [ngStyle]="{'width': 85 + 'vw'}" src="assets/edad1/isla.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
     <!--ISLA pequeña-->
-    <div class="objeto objeto-isla" [ngStyle]="{'top': 30 + 'vh', 'right': 10 + 'vw'}" *ngIf="isla.inversion.produccion_interna.tecnologia == 0"><!-- La posicion del objeto se maneja desde este contenedor -->
+    <div class="objeto objeto-isla" [ngStyle]="{'top': 25 + 'vh', 'right': 10 + 'vw'}"><!-- La posicion del objeto se maneja desde este contenedor -->
         <img [ngStyle]="{'width': 10.5 + 'vw','height': 9.5 + 'vh' }" src="assets/edad1/isla.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
+        <!--Dinero-->
+        <div class="objeto objeto-dinero" [ngStyle]="{'top': 15.7 + 'vh', 'right': 10 + 'vw'}" *ngIf="isla.dinero >=1 && isla.dinero<=5"><!-- La posicion del objeto se maneja desde este contenedor -->
+            <img [ngStyle]="{'width': 4 + 'vw' }" src="assets/iconos/dinero/op3.1.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
+        </div>
+        <div class="objeto objeto-dinero" [ngStyle]="{'top': 15.7 + 'vh', 'right': 16 + 'vw'}" *ngIf="isla.dinero>=5 && isla.dinero <=10"><!-- La posicion del objeto se maneja desde este contenedor -->
+            <img [ngStyle]="{'width': 4 + 'vw' }" src="assets/iconos/dinero/op3.1.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
+        </div>
     <!--CUEVA-->
-    <div class="objeto objeto-cueva" [ngStyle]="{'top': 45 - (isla.inversion.infraestructura * 2.5) + 'vh', 'left': 15 - (isla.inversion.infraestructura * 2) + 'vw'}" *ngIf="isla.inversion.infraestructura >= 1"><!-- La posicion del objeto se maneja desde este contenedor -->
-        <img [ngStyle]="{'width': isla.inversion.infraestructura * 5 + 10 + 'vw' }" src="assets/edad1/cueva.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
+    <div class="objeto objeto-cueva" [ngStyle]="{'top': 45 - (isla.inversion.infraestructura * 2) + 'vh', 'left': 15.5 - (isla.inversion.infraestructura * 2) + 'vw'}" *ngIf="isla.inversion.infraestructura >= 1 && isla.inversion.infraestructura<=4"><!-- La posicion del objeto se maneja desde este contenedor -->
+        <img [ngStyle]="{'width': isla.inversion.infraestructura * 2 + 10 + 'vw' }" src="assets/edad1/cueva.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
+        <!--Casa-->
+        <div class="objeto objeto-cueva" [ngStyle]="{'top': 48.5 - (isla.inversion.infraestructura) + 'vh', 'left': 10.5 - (isla.inversion.infraestructura) + 'vw'}" *ngIf="isla.inversion.infraestructura >= 5 && isla.inversion.infraestructura<=10"><!-- La posicion del objeto se maneja desde este contenedor -->
+            <img [ngStyle]="{'width': isla.inversion.infraestructura * 2 + 5 + 'vw' }" src="assets/edad1/casa_pobre.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
+        </div>
     <!--Fuego-->
-    <div class="objeto objeto-fuego" [ngStyle]="{'top': 60 + 'vh', 'left': 17 + 'vw'}" *ngIf="isla.inversion.produccion_interna.tecnologia > 3"><!-- La posicion del objeto se maneja desde este contenedor -->
+    <div class="objeto objeto-fuego" [ngStyle]="{'top': 71.5 + 'vh', 'left': 9.5 + 'vw'}" *ngIf="isla.inversion.produccion_interna.tecnologia > 3"><!-- La posicion del objeto se maneja desde este contenedor -->
         <img [ngStyle]="{'width': 14 + 'vh'}" src="assets/edad1/fuego.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
     <!--LANZA-->
-    <div class="objeto objeto-lanza" [ngStyle]="{'top': 75 + 'vh', 'left': 38 + 'vw'}" *ngIf="isla.inversion.produccion_interna.tecnologia > 5"><!-- La posicion del objeto se maneja desde este contenedor -->
+    <div class="objeto objeto-lanza" [ngStyle]="{'top': 80 + 'vh', 'left': 38 + 'vw'}" *ngIf="isla.inversion.produccion_interna.tecnologia > 5"><!-- La posicion del objeto se maneja desde este contenedor -->
         <img [ngStyle]="{'width': 18 + 'vh'}" src="assets/edad1/lanza.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
     <!--Pieles-->
-    <div class="objeto objeto-pieles" [ngStyle]="{'top': 60 + 'vh', 'left': 68 + 'vw'}" *ngIf="isla.inversion.produccion_interna.tecnologia > 7"><!-- La posicion del objeto se maneja desde este contenedor -->
+    <div class="objeto objeto-pieles" [ngStyle]="{'top': 70 + 'vh', 'left': 78 + 'vw'}" *ngIf="isla.inversion.produccion_interna.tecnologia > 7"><!-- La posicion del objeto se maneja desde este contenedor -->
         <img [ngStyle]="{'width': 18 + 'vh'}" src="assets/edad1/pieles.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
     <!--Pinturas-->
-    <div class="objeto objeto-pinturas" [ngStyle]="{'top': 50 + 'vh', 'left': 68 + 'vw'}" *ngIf="isla.inversion.produccion_interna.tecnologia > 9"><!-- La posicion del objeto se maneja desde este contenedor -->
+    <div class="objeto objeto-pinturas" [ngStyle]="{'top': 70 + 'vh', 'left': 68 + 'vw'}" *ngIf="isla.inversion.produccion_interna.tecnologia > 9"><!-- La posicion del objeto se maneja desde este contenedor -->
         <img [ngStyle]="{'width': 15 + 'vh'}" src="assets/edad1/pintura.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
+    <!--POBLACION-->
+    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 22 + 'vh', 'left': 40 + 'vw'}" *ngIf="isla.poblacion >= 1">
+        <img [ngStyle]="{'width': 15 + 'vh'}" src="assets/suj/terricola1.png" alt="" srcset="">
+    </div>
+    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 40 + 'vh', 'left': 65 + 'vw'}" *ngIf="isla.poblacion >= 2">
+        <img [ngStyle]="{'width': 15 + 'vh'}" src="assets/suj/terricola2.png" alt="" srcset="">
+    </div>
+    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 50 + 'vh', 'left': 20 + 'vw'}" *ngIf="isla.poblacion >=3">
+        <img [ngStyle]="{'width': 15 + 'vh'}" src="assets/suj/terricola3.png" alt="" srcset="">
+    </div>
+    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 60 + 'vh', 'left': 55 + 'vw'}" *ngIf="isla.poblacion >= 4">
+        <img [ngStyle]="{'width': 15 + 'vh'}" src="assets/suj/terricola1.png" alt="" srcset="">
+    </div>
+    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 20 + 'vh', 'left': 30 + 'vw'}" *ngIf="isla.poblacion >= 5">
+        <img [ngStyle]="{'width': 14 + 'vh'}" src="assets/suj/terricola2.png" alt="" srcset="">
+    </div>
+    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 21 + 'vh', 'left': 50 + 'vw'}" *ngIf="isla.poblacion >= 6">
+        <img [ngStyle]="{'width': 10 + 'vh'}" src="assets/suj/terricola3.png" alt="" srcset="">
+    </div>
+    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 45 + 'vh', 'left': 30 + 'vw'}" *ngIf="isla.poblacion >= 7">
+        <img [ngStyle]="{'width': 12 + 'vh'}" src="assets/suj/terricola1.png" alt="" srcset="">
+    </div>
+    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 45 + 'vh', 'left': 50 + 'vw'}" *ngIf="isla.poblacion >= 8">
+        <img [ngStyle]="{'width': 12 + 'vh'}" src="assets/suj/terricola2.png" alt="" srcset="">
+    </div>
+    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 55 + 'vh', 'left': 40 + 'vw'}" *ngIf="isla.poblacion >= 9">
+        <img [ngStyle]="{'width': 9 + 'vh'}" src="assets/suj/terricola3.png" alt="" srcset="">
+    </div>
+    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 40 + 'vh', 'left': 80 + 'vw'}" *ngIf="isla.poblacion >= 10">
+        <img [ngStyle]="{'width': 12 + 'vh'}" src="assets/suj/terricola1.png" alt="" srcset="">
+    </div>
 </div>
+
+
