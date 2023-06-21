@@ -67,7 +67,7 @@ export class GameService {
         Isla_actual.inversion.infraestructura + Accion.Infraestructura;
     }
 
-    Isla_actual.inversion.infraestructura+=Accion.Infraestructura;
+    Isla_actual.inversion.infraestructura += Accion.Infraestructura;
   }
 
   public Educacion(Isla_actual: Isla, Accion: Acciones) {
@@ -161,11 +161,8 @@ export class GameService {
       Isla_actual.reservas_recursos -= Accion.tecnologia;
     }
 
-    if (
-      Isla_actual.inversion.educacion >
-      Isla_actual.inversion.produccion_interna.tecnologia
-    ) {
-      Isla_actual.inversion.produccion_interna.tecnologia += Accion.tecnologia;
+    if (Isla_actual.inversion.produccion_interna.tecnologia < Isla_actual.inversion.educacion) {
+      Isla_actual.inversion.produccion_interna.tecnologia += Accion.tecnologia; //Solo hace el aumento si tengo la educacion necesaria
     }
     // se puede invertir en tecnologia
     // no puedo inveritr mas de nivel educativo
@@ -194,6 +191,12 @@ export class GameService {
         Isla_actual.recursos_naturales -= Accion.militar;
       } else {
         Isla_actual.reservas_recursos -= Accion.militar;
+      }
+      
+      if (Isla_actual.inversion.produccion_interna.militar<10){
+        Isla_actual.inversion.produccion_interna.militar += Accion.militar;
+      }else{
+        Isla_actual.inversion.produccion_interna.militar_ex += Accion.militar;
       }
     }
   }
