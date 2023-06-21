@@ -37,6 +37,7 @@ export class GameService {
     sumaDinero = Isla_actual.dinero + 5;
 
     if(sumaAcciones < sumaDinero || sumaAcciones < Isla_actual.recursos_naturales){
+      console.log("No tienes más dinero");
       return false;
     }else{
       return true;
