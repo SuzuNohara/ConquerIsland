@@ -186,6 +186,7 @@ export class GameService {
   }
 
   public Tecnologia(Isla_actual: Isla, Accion: Acciones) {
+    if (Isla_actual.inversion.produccion_interna.tecnologia < Isla_actual.inversion.educacion && Isla_actual.inversion.produccion_interna.tecnologia < 10) {
     //Disminuir dinero y recursos
     if (Isla_actual.dinero <= 10 && Isla_actual.reservas_dinero == 0) {
       //agregar el caso de que sea =10
@@ -211,11 +212,18 @@ export class GameService {
         }
     }
 
-    Isla_actual.inversion.produccion_interna.alimentos -= Accion.tecnologia;
-
-    if (Isla_actual.inversion.produccion_interna.tecnologia < Isla_actual.inversion.educacion && Isla_actual.inversion.produccion_interna.tecnologia < 10) {
-      Isla_actual.inversion.produccion_interna.tecnologia += Accion.tecnologia; //Solo hace el aumento si tengo la educacion necesaria
+    if(Isla_actual.inversion.produccion_interna.alimentos <=10 && Isla_actual.inversion.produccion_interna.alimentos_ex==0){
+      Isla_actual.inversion.produccion_interna.alimentos -= Accion.tecnologia;
+    }else{
+      if(Isla_actual.inversion.produccion_interna.alimentos_ex > Accion.tecnologia){
+        Isla_actual.inversion.produccion_interna.alimentos_ex -= Accion.tecnologia;
+      }else{
+        Isla_actual.inversion.produccion_interna.alimentos -= (Accion.tecnologia-Isla_actual.inversion.produccion_interna.alimentos_ex);
+        Isla_actual.inversion.produccion_interna.alimentos_ex = 0;
+      }
     }
+
+      Isla_actual.inversion.produccion_interna.tecnologia += Accion.tecnologia; //Solo hace el aumento si tengo la educacion necesaria
     // se puede invertir en tecnologia
     // no puedo inveritr mas de nivel educativo
     // si invierto de mas en tecnologia sin el  nivel educativo, se pierde el dinero y recursos sin aumenta la tecnologia
@@ -223,11 +231,12 @@ export class GameService {
     //¿También se le puede invertir?
     //Aumenta infraestructura y recursos naturales (¿en qué medida?)
   }
+}
 
   public Militar(Isla_actual: Isla, Accion: Acciones) {
     //Disminuir dinero y recursos
     if (
-      Isla_actual.inversion.produccion_interna.militar <
+      Isla_actual.inversion.produccion_interna.militar <=
       Isla_actual.inversion.produccion_interna.tecnologia
     ) {
 
@@ -255,7 +264,16 @@ export class GameService {
           }
       }
 
-      Isla_actual.inversion.produccion_interna.alimentos -= Accion.militar;
+      if(Isla_actual.inversion.produccion_interna.alimentos <=10 && Isla_actual.inversion.produccion_interna.alimentos_ex==0){
+        Isla_actual.inversion.produccion_interna.alimentos -= Accion.militar;
+      }else{
+        if(Isla_actual.inversion.produccion_interna.alimentos_ex > Accion.militar){
+          Isla_actual.inversion.produccion_interna.alimentos_ex -= Accion.militar;
+        }else{
+          Isla_actual.inversion.produccion_interna.alimentos -= (Accion.militar-Isla_actual.inversion.produccion_interna.alimentos_ex);
+          Isla_actual.inversion.produccion_interna.alimentos_ex = 0;
+        }
+      }
       
       if (Isla_actual.inversion.produccion_interna.militar<10){
         Isla_actual.inversion.produccion_interna.militar += Accion.militar;
