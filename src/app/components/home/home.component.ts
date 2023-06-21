@@ -20,8 +20,8 @@ export class HomeComponent implements OnInit{
     this.isla.inversion = new Controles_Isla();
     this.isla.inversion.produccion_interna = new Produccion();
     this.isla.poblacion = 1;
-    this.isla.inversion.produccion_interna.tecnologia = 10;
-    this.isla.inversion.infraestructura = 1;
+    this.isla.inversion.produccion_interna.tecnologia = 0;
+    this.isla.inversion.infraestructura = 0;
   }// funcion de isla inicial (parametros iniciales de la isla)
 
   ngOnInit(): void {
