@@ -32,9 +32,11 @@ export class GameService {
 
   public Comprobar(Isla_actual: Isla, Accion: Acciones): boolean {
     let sumaAcciones:number;
+    let sumaDinero:number;
     sumaAcciones = Accion.Infraestructura + Accion.educacion + Accion.inversion_interna + Accion.militar + Accion.servicios + Accion.tecnologia;
+    sumaDinero = Isla_actual.dinero + 5;
 
-    if(sumaAcciones < Isla_actual.dinero || sumaAcciones < Isla_actual.recursos_naturales){
+    if(sumaAcciones < sumaDinero || sumaAcciones < Isla_actual.recursos_naturales){
       return false;
     }else{
       return true;
