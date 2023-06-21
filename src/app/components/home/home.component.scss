@@ -505,8 +505,15 @@ label{
 
 .gameover{
     position: absolute;
-    width: 75vw;
+    width: 55vw;
     top: 20vh;
-    left: 10vw;
+    left: 20vw;
+    z-index: 301;
+}
+.game{
+    position: absolute;
+    width: 90vw;
+    top: 24vh;
+    left: 5vw;
     z-index: 301;
 }
