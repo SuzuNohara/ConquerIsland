@@ -70,6 +70,7 @@ export class HomeComponent implements OnInit{
     // se obtiene la isla con informacion actualizada
     // esta informacion se manda al componente de isla
     this.isComp.updateIsla(this.isla);
+   this.actions = new Acciones();
   }
 }
 
