@@ -8,7 +8,7 @@
         <img [ngStyle]="{'width': 10.5 + 'vw','height': 9.5 + 'vh' }" src="assets/edad1/isla.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
         <!--Dinero-->
-        <div class="objeto objeto-dinero" [ngStyle]="{'top': 15.7 + 'vh', 'right': 10 + 'vw'}" *ngIf="isla.dinero >=1 && isla.dinero<=5"><!-- La posicion del objeto se maneja desde este contenedor -->
+        <div class="objeto objeto-dinero" [ngStyle]="{'top': 15.7 + 'vh', 'right': 10 + 'vw'}" *ngIf="isla.dinero >=1"><!-- La posicion del objeto se maneja desde este contenedor -->
             <img [ngStyle]="{'width': 4 + 'vw' }" src="assets/iconos/dinero/op3.1.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
         </div>
         <div class="objeto objeto-dinero" [ngStyle]="{'top': 15.7 + 'vh', 'right': 16 + 'vw'}" *ngIf="isla.dinero>=5 && isla.dinero <=10"><!-- La posicion del objeto se maneja desde este contenedor -->
