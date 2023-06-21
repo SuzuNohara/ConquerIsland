@@ -186,7 +186,6 @@ export class GameService {
   }
 
   public Tecnologia(Isla_actual: Isla, Accion: Acciones) {
-    if (Isla_actual.inversion.produccion_interna.tecnologia < Isla_actual.inversion.educacion && Isla_actual.inversion.produccion_interna.tecnologia < 10) {
     //Disminuir dinero y recursos
     if (Isla_actual.dinero <= 10 && Isla_actual.reservas_dinero == 0) {
       //agregar el caso de que sea =10
@@ -223,23 +222,17 @@ export class GameService {
       }
     }
 
-      Isla_actual.inversion.produccion_interna.tecnologia += Accion.tecnologia; //Solo hace el aumento si tengo la educacion necesaria
-    // se puede invertir en tecnologia
-    // no puedo inveritr mas de nivel educativo
-    // si invierto de mas en tecnologia sin el  nivel educativo, se pierde el dinero y recursos sin aumenta la tecnologia
-    //ed>inv_int? tec=inv_int : tec=ed;
-    //¿También se le puede invertir?
-    //Aumenta infraestructura y recursos naturales (¿en qué medida?)
-  }
+      if(Isla_actual.inversion.produccion_interna.tecnologia<Isla_actual.inversion.educacion || Isla_actual.inversion.educacion==10){
+      if (Isla_actual.inversion.produccion_interna.tecnologia<10){
+        Isla_actual.inversion.produccion_interna.militar += Accion.tecnologia;
+      }else if (Isla_actual.inversion.produccion_interna.tecnologia_ex<10){
+        Isla_actual.inversion.produccion_interna.tecnologia_ex += Accion.tecnologia;
+      } 
+    }
 }
 
   public Militar(Isla_actual: Isla, Accion: Acciones) {
     //Disminuir dinero y recursos
-    if (
-      Isla_actual.inversion.produccion_interna.militar <=
-      Isla_actual.inversion.produccion_interna.tecnologia
-    ) {
-
       if (Isla_actual.dinero <= 10 && Isla_actual.reservas_dinero == 0) {
         //agregar el caso de que sea =10
         Isla_actual.dinero -= Accion.militar;
@@ -275,13 +268,14 @@ export class GameService {
         }
       }
       
+      if(Isla_actual.inversion.produccion_interna.militar<Isla_actual.inversion.produccion_interna.tecnologia || Isla_actual.inversion.produccion_interna.tecnologia==10){
       if (Isla_actual.inversion.produccion_interna.militar<10){
         Isla_actual.inversion.produccion_interna.militar += Accion.militar;
       }else if (Isla_actual.inversion.produccion_interna.militar_ex<10){
         Isla_actual.inversion.produccion_interna.militar_ex += Accion.militar;
       }
-    }
   }
+}
 
   public Servicios(Isla_actual: Isla, Accion: Acciones) {
     if (Isla_actual.dinero <= 10 && Isla_actual.reservas_dinero == 0) {
