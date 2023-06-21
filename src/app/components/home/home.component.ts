@@ -88,6 +88,7 @@ export class HomeComponent implements OnInit{
     this.banner = false;
     this.startgame = false;
     this.isla = new Isla();
+    this.isComp.updateIsla(this.isla);
     this.actions = new Acciones();
   }
 
