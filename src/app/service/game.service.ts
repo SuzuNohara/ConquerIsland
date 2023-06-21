@@ -19,17 +19,10 @@ export class GameService {
       Isla_actual.isla_viva = false;
     }
     
-    if (Isla_actual.recursos_naturales <= 10) {
-      Isla_actual.recursos_naturales *= 1.3;
-      if(Isla_actual.recursos_naturales>10){
-        Isla_actual.reservas_recursos = (Isla_actual.recursos_naturales - 10);
-        Isla_actual.recursos_naturales = 10;
-      }
-    } else if (Isla_actual.reservas_recursos < 10) {
-      Isla_actual.reservas_recursos *= 1.3;
-      if(Isla_actual.reservas_recursos>10){
-        Isla_actual.reservas_recursos=10;
-      }
+    if (Isla_actual.recursos_naturales < 10) {
+      Isla_actual.recursos_naturales += 1;
+    } else {
+      Isla_actual.reservas_recursos += 1;
     }
 
     Isla_actual.turno++;
