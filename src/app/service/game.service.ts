@@ -14,11 +14,9 @@ export class GameService {
     this.Inversion_int(Isla_actual, Accion);
     this.Produccion_int(Isla_actual, Accion);
     this.Poblacion(Isla_actual);
+    this.Truncar(Isla_actual);
+    this.gameOver(Isla_actual);
 
-    if (Isla_actual.poblacion == 0) {
-      Isla_actual.isla_viva = false;
-    }
-    
     if (Isla_actual.recursos_naturales < 10) {
       Isla_actual.recursos_naturales += 1;
     } else {
@@ -73,6 +71,9 @@ export class GameService {
 
     if (Isla_actual.poblacion < 10) {
       Isla_actual.poblacion += Accion.Infraestructura;
+      if(Isla_actual.poblacion>10){
+        Isla_actual.poblacion=10;
+      }
     }
 
     if (Isla_actual.inversion.produccion_interna.alimentos < 10) {
@@ -306,6 +307,67 @@ export class GameService {
       Isla_actual.inversion.produccion_interna.alimentos = 0;
     } else {
       Isla_actual.inversion.produccion_interna.alimentos -= Isla_actual.poblacion; //Si tengo suficiente, solo consumo alimentos
+    }
+  }
+
+  public Truncar(Isla_actual: Isla){
+
+    if(Isla_actual.poblacion>10){
+      Isla_actual.poblacion=10;
+    }
+
+    if(Isla_actual.inversion.educacion>10){
+      Isla_actual.inversion.educacion=10;
+    }
+
+    if(Isla_actual.inversion.infraestructura>10){
+      Isla_actual.inversion.infraestructura=10;
+    }
+
+    if(Isla_actual.inversion.inversion_interna>10){
+      Isla_actual.inversion.inversion_interna=10;
+    }
+
+    if(Isla_actual.inversion.produccion_interna.alimentos>10){
+      Isla_actual.inversion.produccion_interna.alimentos_ex += (Isla_actual.inversion.produccion_interna.alimentos-10);
+      Isla_actual.inversion.produccion_interna.alimentos=10;
+      if(Isla_actual.inversion.produccion_interna.alimentos_ex>10){
+        Isla_actual.inversion.produccion_interna.alimentos_ex=10;
+      }
+    }
+
+    if(Isla_actual.inversion.produccion_interna.militar>10){
+      Isla_actual.inversion.produccion_interna.militar_ex += (Isla_actual.inversion.produccion_interna.militar-10);
+      Isla_actual.inversion.produccion_interna.militar=10;
+      if(Isla_actual.inversion.produccion_interna.militar_ex>10){
+        Isla_actual.inversion.produccion_interna.militar_ex=10;
+      }
+    }
+
+    if(Isla_actual.inversion.produccion_interna.tecnologia>10){
+      Isla_actual.inversion.produccion_interna.tecnologia_ex += (Isla_actual.inversion.produccion_interna.tecnologia-10);
+      Isla_actual.inversion.produccion_interna.tecnologia=10;
+      if(Isla_actual.inversion.produccion_interna.tecnologia_ex>10){
+        Isla_actual.inversion.produccion_interna.tecnologia_ex=10;
+      }
+    }
+
+  if(Isla_actual.inversion.produccion_interna.servicios>10){
+    Isla_actual.inversion.produccion_interna.servicios=10;
+    }
+  }
+
+  public gameOver(Isla_actual: Isla){
+    if(Isla_actual.inversion.inversion_interna==0 && Isla_actual.dinero == -5){
+      Isla_actual.isla_viva = false;
+    }
+
+    if(Isla_actual.dinero == -5 && Isla_actual.recursos_naturales==0){
+      Isla_actual.isla_viva = false;
+    }
+
+    if (Isla_actual.poblacion == 0) {
+      Isla_actual.isla_viva = false;
     }
   }
 }
