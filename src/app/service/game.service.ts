@@ -392,7 +392,6 @@ export class GameService {
     return isla.inversion.produccion_interna.tecnologia >= 10 
     && isla.inversion.infraestructura >= 10
     && isla.inversion.inversion_interna >= 10
-    && isla.inversion.produccion_interna.alimentos >= 10
     && isla.inversion.produccion_interna.servicios >= 10;
   }
 }
