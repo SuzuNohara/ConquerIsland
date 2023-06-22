@@ -320,6 +320,10 @@ export class GameService {
     } else {
       Isla_actual.inversion.produccion_interna.alimentos -= Isla_actual.poblacion; //Si tengo suficiente, solo consumo alimentos
     }
+
+    if(Isla_actual.poblacion<0){
+      Isla_actual.poblacion=0;
+    }
   }
 
   public Truncar(Isla_actual: Isla){
