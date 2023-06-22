@@ -16,6 +16,7 @@ export class GameService {
     this.Poblacion(Isla_actual);
     this.Truncar(Isla_actual);
     this.gameOver(Isla_actual);
+    Isla_actual.victoria = this.victoria(Isla_actual);
 
     if (Isla_actual.recursos_naturales < 10) {
       Isla_actual.recursos_naturales += 1;
@@ -385,5 +386,13 @@ export class GameService {
     if (Isla_actual.poblacion == 0) {
       Isla_actual.isla_viva = false;
     }
+  }
+
+  public victoria(isla: Isla){
+    return isla.inversion.produccion_interna.tecnologia >= 10 
+    && isla.inversion.infraestructura >= 10
+    && isla.inversion.inversion_interna >= 10
+    && isla.inversion.produccion_interna.alimentos >= 10
+    && isla.inversion.produccion_interna.servicios >= 10;
   }
 }

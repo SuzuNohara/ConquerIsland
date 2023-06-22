@@ -7,6 +7,7 @@ export class Isla {
     public turno: number;// mapeable // sonido
     public isla_viva: boolean;// mapeable
     public inversion: Controles_Isla;
+    public victoria: boolean;
 
     constructor() {
         this.dinero = 5;
@@ -16,6 +17,7 @@ export class Isla {
         this.reservas_dinero = 0;
         this.turno = 1;
         this.isla_viva = true;
+        this.victoria = false;
         this.inversion = new Controles_Isla();
     }
 }
