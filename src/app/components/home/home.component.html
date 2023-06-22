@@ -42,8 +42,8 @@
   </div> -->
   <div class="i-content">
     <app-isla [status]="isla"></app-isla>
-    <button type="button" class="btn btn-outline-primary abs info" data-bs-toggle="modal" data-bs-target="#actions_modal">Informacion</button>
-    <button type="button" class="btn btn-outline-primary abs act" data-bs-toggle="modal" data-bs-target="#info_modal">Acciones</button>
+    <button type="button" class="btn btn-outline-primary abs info btn-lg" data-bs-toggle="modal" data-bs-target="#actions_modal">Informacion</button>
+    <button type="button" class="btn btn-outline-primary abs act btn-lg" data-bs-toggle="modal" data-bs-target="#info_modal">Acciones</button>
   </div>
 
 </div>
@@ -275,3 +275,4 @@
 <div class="banner" *ngIf="banner"></div>
 <img *ngIf="startgame" src="assets/game/binev.png" class="game" alt="" srcset="">
 <img *ngIf="!isla.isla_viva" src="assets/game/gameover.png" class="gameover" alt="" srcset="">
+<button type="button" class="btn btn-outline-primary btn--banner abs btn-lg" data-bs-toggle="modal" data-bs-target="#actions_modal" *ngIf="!isla.isla_viva">Informacion</button>

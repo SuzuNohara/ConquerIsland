@@ -386,13 +386,14 @@ main .textos-header a {
 }
 
 .info{
-    right: 2vw;
-    bottom: 2vh;
+    right: 38vw;
+    top: 10vh;
+    margin-right: -2%;
 }
 
 .act{
-    right: 12vw;
-    bottom: 2vh;
+    right: 48vw;
+    top: 10vh;
 }
 .modal-content{ 
 background-color: #0E0B1E;
@@ -410,6 +411,16 @@ color: white;
     --bs-btn-focus-shadow-rgb: 13, 110, 253;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #9673FF;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+.btn--banner{
+    margin-bottom: 12vh;
+    margin-right: 25vh;
+    z-index: 302;
+    right: 2vw;
+    bottom: 1vh;
 }
 .btn-primary {
     --bs-btn-color: #fff;
