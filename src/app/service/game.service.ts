@@ -218,14 +218,14 @@ export class GameService {
       if(Isla_actual.inversion.produccion_interna.alimentos_ex > Accion.tecnologia){
         Isla_actual.inversion.produccion_interna.alimentos_ex -= Accion.tecnologia;
       }else{
-        Isla_actual.inversion.produccion_interna.alimentos -= (Accion.tecnologia-Isla_actual.inversion.produccion_interna.alimentos_ex);
+        Isla_actual.inversion.produccion_interna.alimentos -= (Accion.tecnologia - Isla_actual.inversion.produccion_interna.alimentos_ex);
         Isla_actual.inversion.produccion_interna.alimentos_ex = 0;
       }
     }
 
       if(Isla_actual.inversion.produccion_interna.tecnologia<Isla_actual.inversion.educacion || Isla_actual.inversion.educacion==10){
       if (Isla_actual.inversion.produccion_interna.tecnologia<10){
-        Isla_actual.inversion.produccion_interna.militar += Accion.tecnologia;
+        Isla_actual.inversion.produccion_interna.tecnologia += Accion.tecnologia;
       }else if (Isla_actual.inversion.produccion_interna.tecnologia_ex<10){
         Isla_actual.inversion.produccion_interna.tecnologia_ex += Accion.tecnologia;
       } 
