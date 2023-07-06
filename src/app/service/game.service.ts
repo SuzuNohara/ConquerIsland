@@ -319,7 +319,11 @@ export class GameService {
       Isla_actual.poblacion = Isla_actual.inversion.produccion_interna.alimentos; //Si los alimentos son 0, la poblacion también
       Isla_actual.inversion.produccion_interna.alimentos = 0;
     } else {
-      Isla_actual.inversion.produccion_interna.alimentos -= Isla_actual.poblacion; //Si tengo suficiente, solo consumo alimentos
+      if(Isla_actual.inversion.produccion_interna.alimentos_ex==0){
+        Isla_actual.inversion.produccion_interna.alimentos -= Isla_actual.poblacion; //consumo alimentos
+      }else{
+        Isla_actual.inversion.produccion_interna.alimentos_ex -= Isla_actual.poblacion; //consumo el excedente
+      }
     }
 
     if(Isla_actual.poblacion<0){
