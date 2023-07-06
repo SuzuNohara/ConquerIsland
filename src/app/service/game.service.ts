@@ -321,8 +321,13 @@ export class GameService {
     } else {
       if(Isla_actual.inversion.produccion_interna.alimentos_ex==0){
         Isla_actual.inversion.produccion_interna.alimentos -= Isla_actual.poblacion; //consumo alimentos
-      }else{
-        Isla_actual.inversion.produccion_interna.alimentos_ex -= Isla_actual.poblacion; //consumo el excedente
+      }else {
+        if(Isla_actual.inversion.produccion_interna.alimentos_ex<Isla_actual.poblacion){
+          Isla_actual.inversion.produccion_interna.alimentos -= (Isla_actual.poblacion - Isla_actual.inversion.produccion_interna.alimentos_ex);
+          Isla_actual.inversion.produccion_interna.alimentos_ex = 0; 
+        }else{
+          Isla_actual.inversion.produccion_interna.alimentos_ex -= Isla_actual.poblacion; 
+        } 
       }
     }
 
