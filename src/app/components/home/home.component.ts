@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit{
     
   }
 
-  openNav(): void {
+ /* openNav(): void {
     const mobileMenu = document.getElementById("mobile-menu");
     if (mobileMenu) {
       mobileMenu.style.width = "100%";
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit{
     if (mobileMenu) {
       mobileMenu.style.width = "0%";
     }
-  }
+  }*/
   openCity(event: MouseEvent, cityName: string): void {
     const currentTarget = event.currentTarget as HTMLElement;
     if (currentTarget) {
