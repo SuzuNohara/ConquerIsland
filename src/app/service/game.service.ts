@@ -303,14 +303,22 @@ export class GameService {
         }
     }
 
+
      if(Isla_actual.inversion.produccion_interna.alimentos<10){   //Servicios me genera alimentos
       Isla_actual.inversion.produccion_interna.alimentos += (Isla_actual.inversion.produccion_interna.servicios + Accion.servicios);
+      if(Isla_actual.inversion.produccion_interna.alimentos>10){
+        Isla_actual.inversion.produccion_interna.alimentos_ex+=(Isla_actual.inversion.produccion_interna.alimentos-10);
+        Isla_actual.inversion.produccion_interna.alimentos=10;
+      }
      }else if(Isla_actual.inversion.produccion_interna.alimentos_ex<10){
       Isla_actual.inversion.produccion_interna.alimentos_ex += (Isla_actual.inversion.produccion_interna.servicios + Accion.servicios);
-     }
+    }
 
      if (Isla_actual.inversion.produccion_interna.servicios<10){
       Isla_actual.inversion.produccion_interna.servicios += Accion.servicios;
+      if(Isla_actual.inversion.produccion_interna.servicios>10){
+        Isla_actual.inversion.produccion_interna.servicios=10;
+      }
     }
   }
 
@@ -360,6 +368,10 @@ export class GameService {
       if(Isla_actual.inversion.produccion_interna.alimentos_ex>10){
         Isla_actual.inversion.produccion_interna.alimentos_ex=10;
       }
+    }
+
+    if(Isla_actual.inversion.produccion_interna.alimentos_ex>10){
+      Isla_actual.inversion.produccion_interna.alimentos_ex=10;
     }
 
     if(Isla_actual.inversion.produccion_interna.militar>10){
