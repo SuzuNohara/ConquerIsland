@@ -20,7 +20,7 @@ export class GameService {
 
     if (Isla_actual.recursos_naturales < 10) {
       Isla_actual.recursos_naturales += 1;
-    } else {
+    } else if(Isla_actual.reservas_recursos < 10){
       Isla_actual.reservas_recursos += 1;
     }
 
