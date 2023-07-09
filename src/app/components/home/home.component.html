@@ -10,7 +10,7 @@
     </nav>
     <a class="btn"><button (click)="newGame()">New Game</button></a>
   </header>
-  <div class="i-content">
+ <!--<div class="i-content">
     <app-isla [status]="isla"></app-isla>
     <button type="button" class="btn btn-outline-primary abs info btn-lg" data-bs-toggle="modal" data-bs-target="#actions_modal">Informacion</button>
     <button type="button" class="btn btn-outline-primary abs act btn-lg" data-bs-toggle="modal" data-bs-target="#info_modal">Acciones</button>
@@ -247,7 +247,6 @@
 <img *ngIf="isla.victoria" src="assets/game/win.png" class="game" alt="" srcset="">
 <img *ngIf="!isla.isla_viva" src="assets/game/gameover.png" class="gameover" alt="" srcset="">
 <button type="button" class="btn btn-outline-primary btn--banner abs btn-lg" data-bs-toggle="modal" data-bs-target="#actions_modal" *ngIf="!isla.isla_viva || isla.victoria">Informacion</button>
-<!-- 
   cambiuos prueba
   Cambios de master
   cambios de otra cosas
