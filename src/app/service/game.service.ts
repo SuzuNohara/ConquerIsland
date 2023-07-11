@@ -14,6 +14,7 @@ export class GameService {
     this.Inversion_int(Isla_actual, Accion);
     this.Produccion_int(Isla_actual, Accion);
     this.Poblacion(Isla_actual);
+    this.catastrofe(Isla_actual, Accion);
     this.Truncar(Isla_actual);
     this.gameOver(Isla_actual);
     Isla_actual.victoria = this.victoria(Isla_actual);
@@ -393,5 +394,56 @@ export class GameService {
     && isla.inversion.infraestructura >= 10
     && isla.inversion.inversion_interna >= 10
     && isla.inversion.produccion_interna.servicios >= 10;
+  }
+
+  public catastrofe(Isla_actual: Isla, Accion: Acciones)
+  {
+    let tipoAleatorio: number;
+    //El desastre se genera cada 5 turnos (cambiar despues para balancear esto)
+    if(Isla_actual.turno%5 == 0){
+      Accion.desastresNaturales.desastre = true;
+      // Genera un número aleatorio entre 0 y 2
+      const numeroAleatorio = Math.random();
+      const numeroEntre0y3 = numeroAleatorio * 3;
+      tipoAleatorio = Math.floor(numeroEntre0y3);
+      
+      //definir el tipo de desastre que se genera aleatoriamente
+      if(tipoAleatorio == 0)
+        Accion.desastresNaturales.tipo = 'tsunami';
+      else if(tipoAleatorio == 1)
+        Accion.desastresNaturales.tipo = "terremoto";
+      else if(tipoAleatorio == 2)
+        Accion.desastresNaturales.tipo = "huracan";
+
+      //general aleatoriamente el nivel del desastre natural entre 0 y 5
+      const numeroAleatorio2 = Math.random();
+      const numeroEntre0y6 = numeroAleatorio2 * 3;
+      Accion.desastresNaturales.nivel = Math.floor(numeroEntre0y6);
+
+      //Realizar los desastres provocados
+      if (Isla_actual.recursos_naturales <= 10 && Isla_actual.reservas_recursos == 0) {
+        //agregar el caso de que sea =10
+        Isla_actual.recursos_naturales -= Accion.desastresNaturales.nivel;
+      } else{
+        if(Isla_actual.reservas_recursos > Accion.desastresNaturales.nivel){
+          Isla_actual.reservas_recursos -= Accion.desastresNaturales.nivel;
+          }else{
+            Isla_actual.recursos_naturales -= (Accion.desastresNaturales.nivel - Isla_actual.reservas_recursos);
+            Isla_actual.reservas_recursos = 0;
+          }
+      }
+
+      if (Isla_actual.dinero <= 10 && Isla_actual.reservas_dinero == 0) {
+        //agregar el caso de que sea =10
+        Isla_actual.dinero -= Accion.desastresNaturales.nivel;
+      } else {
+        if(Isla_actual.reservas_dinero > Accion.desastresNaturales.nivel){
+        Isla_actual.reservas_dinero -= Accion.desastresNaturales.nivel;
+        }else{
+          Isla_actual.dinero -= (Accion.desastresNaturales.nivel- Isla_actual.reservas_dinero);
+          Isla_actual.reservas_dinero = 0;
+        }
+      }
+    }
   }
 }

@@ -63,6 +63,7 @@ export class Acciones {
     public tecnologia: number;
     public militar: number;
     public servicios: number;
+    public desastresNaturales: desastreNatural;
 
     constructor(){
         this.Infraestructura = 0;
@@ -71,5 +72,19 @@ export class Acciones {
         this.tecnologia = 0;
         this.militar = 0;
         this.servicios = 0;
+        this.desastresNaturales = new desastreNatural();
     }
+}
+
+export class desastreNatural {
+    public desastre: boolean;
+    public tipo: "tsunami" | "terremoto" | "huracan";
+    public nivel: number;
+
+    constructor(){
+        this.desastre = false;
+        this.tipo = "tsunami";
+        this.nivel = 0;
+    }
+
 }
