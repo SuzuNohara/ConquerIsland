@@ -14,6 +14,7 @@ export class GameService {
     this.Inversion_int(Isla_actual, Accion);
     this.Produccion_int(Isla_actual, Accion);
     this.Poblacion(Isla_actual);
+    this.Catastrofe(Isla_actual, Accion); //funcion de desastres naturales
     this.Truncar(Isla_actual);
     this.gameOver(Isla_actual);
     Isla_actual.victoria = this.victoria(Isla_actual);
@@ -416,7 +417,7 @@ export class GameService {
     && isla.inversion.produccion_interna.servicios >= 10;
   }
 
-  public catastrofe(Isla_actual: Isla, Accion: Acciones)
+  public Catastrofe(Isla_actual: Isla, Accion: Acciones)
   {
     let tipoAleatorio: number;
     //El desastre se genera cada 5 turnos (cambiar despues para balancear esto)
