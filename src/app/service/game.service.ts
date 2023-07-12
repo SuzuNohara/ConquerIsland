@@ -57,37 +57,35 @@ export class GameService {
     }
 
     if (
-      Isla_actual.recursos_naturales <= 10 &&
-      Isla_actual.reservas_recursos == 0
+      Isla_actual.recursos_naturales <= environment.algoritmo.limites.recursos[1] &&
+      Isla_actual.reservas_recursos == environment.algoritmo.limites.recursos[0]
     ) {
       //agregar el caso de que sea =10
-      Isla_actual.recursos_naturales -= Accion.Infraestructura;
+      Isla_actual.recursos_naturales -= environment.algoritmo.costos_nat.infraestructura * Accion.Infraestructura;
     } else{
-      if(Isla_actual.reservas_recursos > Accion.Infraestructura){
-        Isla_actual.reservas_recursos -= Accion.Infraestructura;
+      if(Isla_actual.reservas_recursos > environment.algoritmo.costos_nat.infraestructura * Accion.Infraestructura){
+        Isla_actual.reservas_recursos -= environment.algoritmo.costos_nat.infraestructura * Accion.Infraestructura;
         }else{
-          Isla_actual.recursos_naturales -= (Accion.Infraestructura - Isla_actual.reservas_recursos);
+          Isla_actual.recursos_naturales -= (environment.algoritmo.costos_nat.infraestructura * Accion.Infraestructura - Isla_actual.reservas_recursos);
           Isla_actual.reservas_recursos = 0;
         }
     }
 
-    if (Isla_actual.poblacion < 10) {
-      Isla_actual.poblacion += Accion.Infraestructura;
-      if(Isla_actual.poblacion>10){
-        Isla_actual.poblacion=10;
+    if (Isla_actual.poblacion < environment.algoritmo.limites.poblacion[1]) {
+      Isla_actual.poblacion += environment.algoritmo.crecimiento.poblacion * Accion.Infraestructura;
+      if(Isla_actual.poblacion > environment.algoritmo.limites.poblacion[1]){
+        Isla_actual.poblacion = environment.algoritmo.limites.poblacion[1];
       }
     }
 
-    if (Isla_actual.inversion.produccion_interna.alimentos < 10) {
-      Isla_actual.inversion.produccion_interna.alimentos +=
-        Isla_actual.inversion.infraestructura + Accion.Infraestructura; //Aumenta los alimentos por turno
-    } else if (Isla_actual.inversion.produccion_interna.alimentos_ex < 10) {
-      Isla_actual.inversion.produccion_interna.alimentos_ex +=
-        Isla_actual.inversion.infraestructura + Accion.Infraestructura;
+    if (Isla_actual.inversion.produccion_interna.alimentos < environment.algoritmo.limites.alimentos[1]) {
+      Isla_actual.inversion.produccion_interna.alimentos += environment.algoritmo.crecimiento.alimentos * (Isla_actual.inversion.infraestructura + Accion.Infraestructura); //Aumenta los alimentos por turno
+    } else if (Isla_actual.inversion.produccion_interna.alimentos_ex < environment.algoritmo.limites.alimentos[1]) {
+      Isla_actual.inversion.produccion_interna.alimentos_ex += environment.algoritmo.crecimiento.alimentos * (Isla_actual.inversion.infraestructura + Accion.Infraestructura);
     }
 
-    if (Isla_actual.inversion.infraestructura<10){
-      Isla_actual.inversion.infraestructura += Accion.Infraestructura;
+    if (Isla_actual.inversion.infraestructura < environment.algoritmo.limites.infraestructura[1]){
+      Isla_actual.inversion.infraestructura += environment.algoritmo.crecimiento.infraestructura * Accion.Infraestructura;
     }
   }
 
