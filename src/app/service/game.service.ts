@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Acciones, Isla } from '../dto/Isla';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -41,16 +42,16 @@ export class GameService {
     }
   }
 
-  public Infraestructura(Isla_actual: Isla, Accion: Acciones) {
+  public Infraestructura(Isla_actual: Isla, Accion: Acciones) { // parametrizado
     //Disminuir dinero y recursos
-    if (Isla_actual.dinero <= 10 && Isla_actual.reservas_dinero == 0) {
+    if (Isla_actual.dinero <= environment.algoritmo.limites.dinero[1] && Isla_actual.reservas_dinero == environment.algoritmo.limites.dinero[0]) {
       //agregar el caso de que sea =10
-      Isla_actual.dinero -= Accion.Infraestructura;
+      Isla_actual.dinero -= environment.algoritmo.costos_dinero.infraestructura * Accion.Infraestructura;
     } else {
-      if(Isla_actual.reservas_dinero > Accion.Infraestructura){
-      Isla_actual.reservas_dinero -= Accion.Infraestructura;
+      if(Isla_actual.reservas_dinero > environment.algoritmo.costos_dinero.infraestructura * Accion.Infraestructura){
+        Isla_actual.reservas_dinero -= environment.algoritmo.costos_dinero.infraestructura * Accion.Infraestructura;
       }else{
-        Isla_actual.dinero -= (Accion.Infraestructura - Isla_actual.reservas_dinero);
+        Isla_actual.dinero -= (environment.algoritmo.costos_dinero.infraestructura * Accion.Infraestructura - Isla_actual.reservas_dinero);
         Isla_actual.reservas_dinero = 0;
       }
     }
