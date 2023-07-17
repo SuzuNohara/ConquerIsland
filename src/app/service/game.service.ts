@@ -466,11 +466,16 @@ export class GameService {
         }
       }
 
-      Isla_actual.inversion.infraestructura-1;
+      if(Isla_actual.inversion.infraestructura >= 1)
+        Isla_actual.inversion.infraestructura -= 1;
       if(Isla_actual.inversion.produccion_interna.tecnologia_ex > 0)
-        Isla_actual.inversion.produccion_interna.tecnologia_ex-1;
+        Isla_actual.inversion.produccion_interna.tecnologia_ex -= 1;
       else
-        Isla_actual.inversion.produccion_interna.tecnologia-1;
+        Isla_actual.inversion.produccion_interna.tecnologia -= 1;
+
+      //Matar poblacion solo si es menor
+      if(Isla_actual.poblacion > Accion.desastresNaturales.nivel)
+        Isla_actual.poblacion -= Accion.desastresNaturales.nivel
     }
 
     else{
