@@ -44,7 +44,7 @@ export class GameService {
 
   public Infraestructura(Isla_actual: Isla, Accion: Acciones) { // parametrizado
     //Disminuir dinero y recursos
-    if (Isla_actual.dinero <= environment.algoritmo.limites.dinero[1] && Isla_actual.reservas_dinero == environment.algoritmo.limites.dinero[0]) {
+    if (Isla_actual.dinero <= environment.algoritmo.limites.dinero[1] && Isla_actual.reservas_dinero == environment.algoritmo.limites.reservas_dinero[0]) {
       //agregar el caso de que sea =10
       Isla_actual.dinero -= environment.algoritmo.costos_dinero.infraestructura * Accion.Infraestructura;
     } else {
@@ -52,7 +52,7 @@ export class GameService {
         Isla_actual.reservas_dinero -= environment.algoritmo.costos_dinero.infraestructura * Accion.Infraestructura;
       }else{
         Isla_actual.dinero -= (environment.algoritmo.costos_dinero.infraestructura * Accion.Infraestructura - Isla_actual.reservas_dinero);
-        Isla_actual.reservas_dinero = 0;
+        Isla_actual.reservas_dinero = environment.algoritmo.limites.reservas_dinero[0];
       }
     }
 
@@ -67,7 +67,7 @@ export class GameService {
         Isla_actual.reservas_recursos -= environment.algoritmo.costos_nat.infraestructura * Accion.Infraestructura;
         }else{
           Isla_actual.recursos_naturales -= (environment.algoritmo.costos_nat.infraestructura * Accion.Infraestructura - Isla_actual.reservas_recursos);
-          Isla_actual.reservas_recursos = 0;
+          Isla_actual.reservas_recursos = environment.algoritmo.limites.reservas_recursos[0];
         }
     }
 
@@ -90,30 +90,35 @@ export class GameService {
   }
 
   public Educacion(Isla_actual: Isla, Accion: Acciones) {
-    //Disminuir dinero y recursos
-    if (Isla_actual.dinero <= 10 && Isla_actual.reservas_dinero == 0) {
+   //PARAMETRIZACIÓN COSTOS DE COSTOS DINERO
+   
+    if (Isla_actual.dinero <= environment.algoritmo.limites.dinero[1] && Isla_actual.reservas_dinero == environment.algoritmo.limites.reservas_dinero[0]) {
       //agregar el caso de que sea =10
-      Isla_actual.dinero -= Accion.educacion;
+      Isla_actual.dinero -= environment.algoritmo.costos_dinero.educacion * Accion.educacion;
     } else {
-      if(Isla_actual.reservas_dinero > Accion.educacion){
-      Isla_actual.reservas_dinero -= Accion.educacion;
+      if(Isla_actual.reservas_dinero > environment.algoritmo.costos_dinero.educacion * Accion.educacion){
+      Isla_actual.reservas_dinero -= environment.algoritmo.costos_dinero.educacion * Accion.educacion;
       }else{
-        Isla_actual.dinero -= (Accion.educacion - Isla_actual.reservas_dinero);
-        Isla_actual.reservas_dinero = 0;
+        Isla_actual.dinero -= (environment.algoritmo.costos_dinero.educacion * Accion.educacion) - Isla_actual.reservas_dinero;
+        Isla_actual.reservas_dinero = environment.algoritmo.limites.reservas_dinero[0];
       }
     }
 
-    if (Isla_actual.recursos_naturales <= 10 && Isla_actual.reservas_recursos == 0) {
+    //PARAMETRIZACIÓN COSTOS DE RECURSOS NATURALES
+
+    if (Isla_actual.recursos_naturales <= environment.algoritmo.limites.recursos[1] && Isla_actual.reservas_recursos == environment.algoritmo.limites.reservas_recursos[0]) {
       //agregar el caso de que sea =10
-      Isla_actual.recursos_naturales -= Accion.educacion;
+      Isla_actual.recursos_naturales -= environment.algoritmo.costos_nat.educacion * Accion.educacion;
     } else{
-      if(Isla_actual.reservas_recursos > Accion.educacion){
-        Isla_actual.reservas_recursos -= Accion.educacion;
+      if(Isla_actual.reservas_recursos > environment.algoritmo.costos_nat.educacion *  Accion.educacion){
+        Isla_actual.reservas_recursos -= environment.algoritmo.costos_nat.educacion * Accion.educacion;
         }else{
-          Isla_actual.recursos_naturales -= (Accion.educacion - Isla_actual.reservas_recursos);
-          Isla_actual.reservas_recursos = 0;
+          Isla_actual.recursos_naturales -= (environment.algoritmo.costos_nat.educacion * Accion.educacion) - Isla_actual.reservas_recursos;
+          Isla_actual.reservas_recursos = environment.algoritmo.limites.reservas_recursos[0];
         }
     }
+
+    //Discutir el eliminar esta parte
 
     if (Isla_actual.inversion.produccion_interna.tecnologia < 10) {
       Isla_actual.inversion.produccion_interna.tecnologia += Accion.educacion;
@@ -122,60 +127,62 @@ export class GameService {
         Accion.educacion;
     }
 
-    if (Isla_actual.inversion.educacion<10){
-      Isla_actual.inversion.educacion += Accion.educacion;
+    if (Isla_actual.inversion.educacion < environment.algoritmo.limites.educacion[1]){
+      Isla_actual.inversion.educacion += environment.algoritmo.crecimiento.educacion * Accion.educacion;
     }
   }
 
   public Inversion_int(Isla_actual: Isla, Accion: Acciones) {
     //Disminuir dinero y recursos
-    if (Isla_actual.dinero <= 10 && Isla_actual.reservas_dinero == 0) {
+    if (Isla_actual.dinero <= environment.algoritmo.limites.dinero[1] && Isla_actual.reservas_dinero == environment.algoritmo.limites.reservas_dinero[0]) {
       //agregar el caso de que sea =10
-      Isla_actual.dinero -= Accion.inversion_interna;
+      Isla_actual.dinero -= environment.algoritmo.costos_dinero.inversion_int * Accion.inversion_interna;
     } else {
-      if(Isla_actual.reservas_dinero > Accion.inversion_interna){
-      Isla_actual.reservas_dinero -= Accion.inversion_interna;
+      if(Isla_actual.reservas_dinero > environment.algoritmo.costos_dinero.inversion_int * Accion.inversion_interna){
+      Isla_actual.reservas_dinero -= environment.algoritmo.costos_dinero.inversion_int * Accion.inversion_interna;
       }else{
-        Isla_actual.dinero -= (Accion.inversion_interna - Isla_actual.reservas_dinero);
-        Isla_actual.reservas_dinero = 0;
+        Isla_actual.dinero -= (environment.algoritmo.costos_dinero.inversion_int * Accion.inversion_interna) - Isla_actual.reservas_dinero;
+        Isla_actual.reservas_dinero = environment.algoritmo.limites.reservas_dinero[0];
       }
     }
 
-    if (Isla_actual.recursos_naturales <= 10 && Isla_actual.reservas_recursos == 0) {
+    if (Isla_actual.recursos_naturales <= environment.algoritmo.limites.recursos[1] && Isla_actual.reservas_recursos == environment.algoritmo.limites.reservas_recursos[0]) {
       //agregar el caso de que sea =10
-      Isla_actual.recursos_naturales -= Accion.inversion_interna;
+      Isla_actual.recursos_naturales -= environment.algoritmo.costos_nat.inversion_int * Accion.inversion_interna;
     } else{
-      if(Isla_actual.reservas_recursos > Accion.inversion_interna){
-        Isla_actual.reservas_recursos -= Accion.inversion_interna;
+      if(Isla_actual.reservas_recursos > environment.algoritmo.costos_nat.inversion_int * Accion.inversion_interna){
+        Isla_actual.reservas_recursos -= environment.algoritmo.costos_nat.inversion_int * Accion.inversion_interna;
         }else{
-          Isla_actual.recursos_naturales -= (Accion.inversion_interna - Isla_actual.reservas_recursos);
-          Isla_actual.reservas_recursos = 0;
+          Isla_actual.recursos_naturales -= (environment.algoritmo.costos_nat.inversion_int * Accion.inversion_interna) - Isla_actual.reservas_recursos;
+          Isla_actual.reservas_recursos =environment.algoritmo.limites.reservas_recursos[0];
         }
     }
 
-    if (Isla_actual.poblacion < 10) {
-      Isla_actual.poblacion += Accion.inversion_interna;
+    if (Isla_actual.poblacion < environment.algoritmo.limites.poblacion[1]) {
+      Isla_actual.poblacion += environment.algoritmo.crecimiento.poblacion * Accion.inversion_interna;
     }
 
-    if (Isla_actual.dinero < 10) {
+    //PARAMETRIZACIÓN CRECIMIENTO DE DINERO
+
+    if (Isla_actual.dinero < environment.algoritmo.limites.dinero[1]) {
       Isla_actual.dinero +=
-        0.5 *
+        environment.algoritmo.crecimiento.dinero *
         (Isla_actual.inversion.inversion_interna + Accion.inversion_interna); //Por turno (discutir con Kike)
-      if (Isla_actual.dinero > 10) {
-        Isla_actual.reservas_dinero += Isla_actual.dinero - 10;
-        Isla_actual.dinero = 10;
+      if (Isla_actual.dinero > environment.algoritmo.limites.dinero[1]) {
+        Isla_actual.reservas_dinero += Isla_actual.dinero - environment.algoritmo.limites.reservas_dinero[1];
+        Isla_actual.dinero = environment.algoritmo.limites.dinero[1];
       }
-    } else if (Isla_actual.reservas_dinero < 10) {
+    } else if (Isla_actual.reservas_dinero < environment.algoritmo.limites.reservas_dinero[1]) {
       Isla_actual.reservas_dinero +=
-        0.5 *
+      environment.algoritmo.crecimiento.dinero *
         (Isla_actual.inversion.inversion_interna + Accion.inversion_interna);
-      if (Isla_actual.reservas_dinero > 10) {
-        Isla_actual.reservas_dinero = 10;
+      if (Isla_actual.reservas_dinero > environment.algoritmo.limites.reservas_dinero[1]) {
+        Isla_actual.reservas_dinero = environment.algoritmo.limites.reservas_dinero[1];
       }
     }
 
-    if (Isla_actual.inversion.inversion_interna<10){
-      Isla_actual.inversion.inversion_interna += Accion.inversion_interna;
+    if (Isla_actual.inversion.inversion_interna < environment.algoritmo.limites.inversion_int[1]){
+      Isla_actual.inversion.inversion_interna += environment.algoritmo.crecimiento.inversion_int * Accion.inversion_interna;
     }
   }
 
@@ -187,136 +194,136 @@ export class GameService {
 
   public Tecnologia(Isla_actual: Isla, Accion: Acciones) {
     //Disminuir dinero y recursos
-    if (Isla_actual.dinero <= 10 && Isla_actual.reservas_dinero == 0) {
+    if (Isla_actual.dinero <= environment.algoritmo.limites.dinero[1] && Isla_actual.reservas_dinero == environment.algoritmo.limites.reservas_dinero[0]) {
       //agregar el caso de que sea =10
-      Isla_actual.dinero -= Accion.tecnologia;
+      Isla_actual.dinero -= environment.algoritmo.costos_dinero.tecnologia * Accion.tecnologia;
     } else {
-      if(Isla_actual.reservas_dinero > Accion.tecnologia){
-      Isla_actual.reservas_dinero -= Accion.tecnologia;
+      if(Isla_actual.reservas_dinero > environment.algoritmo.costos_dinero.tecnologia * Accion.tecnologia){
+      Isla_actual.reservas_dinero -= environment.algoritmo.costos_dinero.tecnologia * Accion.tecnologia;
       }else{
-        Isla_actual.dinero -= (Accion.tecnologia - Isla_actual.reservas_dinero);
-        Isla_actual.reservas_dinero = 0;
+        Isla_actual.dinero -= (environment.algoritmo.costos_dinero.tecnologia * Accion.tecnologia) - Isla_actual.reservas_dinero;
+        Isla_actual.reservas_dinero = environment.algoritmo.limites.reservas_dinero[0];
       }
     }
 
-    if (Isla_actual.recursos_naturales <= 10 && Isla_actual.reservas_recursos == 0) {
+    if (Isla_actual.recursos_naturales <= environment.algoritmo.limites.recursos[1] && Isla_actual.reservas_recursos == environment.algoritmo.limites.reservas_recursos[0]) {
       //agregar el caso de que sea =10
-      Isla_actual.recursos_naturales -= Accion.tecnologia;
+      Isla_actual.recursos_naturales -= environment.algoritmo.costos_nat.tecnologia * Accion.tecnologia;
     } else{
-      if(Isla_actual.reservas_recursos > Accion.tecnologia){
-        Isla_actual.reservas_recursos -= Accion.tecnologia;
+      if(Isla_actual.reservas_recursos > environment.algoritmo.costos_nat.tecnologia * Accion.tecnologia){
+        Isla_actual.reservas_recursos -= environment.algoritmo.costos_nat.tecnologia * Accion.tecnologia;
         }else{
-          Isla_actual.recursos_naturales -= (Accion.tecnologia - Isla_actual.reservas_recursos);
-          Isla_actual.reservas_recursos = 0;
+          Isla_actual.recursos_naturales -= (environment.algoritmo.costos_nat.tecnologia * Accion.tecnologia) - Isla_actual.reservas_recursos;
+          Isla_actual.reservas_recursos = environment.algoritmo.limites.reservas_recursos[0];
         }
     }
 
-    if(Isla_actual.inversion.produccion_interna.alimentos <=10 && Isla_actual.inversion.produccion_interna.alimentos_ex==0){
-      Isla_actual.inversion.produccion_interna.alimentos -= Accion.tecnologia;
+    if(Isla_actual.inversion.produccion_interna.alimentos <= environment.algoritmo.limites.alimentos[1] && Isla_actual.inversion.produccion_interna.alimentos_ex == environment.algoritmo.limites.alimentos_ex[0]){
+      Isla_actual.inversion.produccion_interna.alimentos -= environment.algoritmo.costos_alim.tecnologia * Accion.tecnologia; //considero costo de alimentos
     }else{
-      if(Isla_actual.inversion.produccion_interna.alimentos_ex > Accion.tecnologia){
-        Isla_actual.inversion.produccion_interna.alimentos_ex -= Accion.tecnologia;
+      if(Isla_actual.inversion.produccion_interna.alimentos_ex > environment.algoritmo.costos_alim.tecnologia * Accion.tecnologia){
+        Isla_actual.inversion.produccion_interna.alimentos_ex -= environment.algoritmo.costos_alim.tecnologia * Accion.tecnologia;
       }else{
-        Isla_actual.inversion.produccion_interna.alimentos -= (Accion.tecnologia - Isla_actual.inversion.produccion_interna.alimentos_ex);
-        Isla_actual.inversion.produccion_interna.alimentos_ex = 0;
+        Isla_actual.inversion.produccion_interna.alimentos -= (environment.algoritmo.costos_alim.tecnologia * Accion.tecnologia) - Isla_actual.inversion.produccion_interna.alimentos_ex;
+        Isla_actual.inversion.produccion_interna.alimentos_ex = environment.algoritmo.limites.alimentos_ex[0];
       }
     }
 
-      if(Isla_actual.inversion.produccion_interna.tecnologia<Isla_actual.inversion.educacion || Isla_actual.inversion.educacion==10){
-      if (Isla_actual.inversion.produccion_interna.tecnologia<10){
-        Isla_actual.inversion.produccion_interna.tecnologia += Accion.tecnologia;
-      }else if (Isla_actual.inversion.produccion_interna.tecnologia_ex<10){
-        Isla_actual.inversion.produccion_interna.tecnologia_ex += Accion.tecnologia;
-      } 
+      if(Isla_actual.inversion.produccion_interna.tecnologia < Isla_actual.inversion.educacion || Isla_actual.inversion.educacion == environment.algoritmo.limites.educacion[1]){
+      if (Isla_actual.inversion.produccion_interna.tecnologia < environment.algoritmo.limites.tecnologia[1]){
+        Isla_actual.inversion.produccion_interna.tecnologia += environment.algoritmo.crecimiento.tecnologia * Accion.tecnologia;
+      }else if (Isla_actual.inversion.produccion_interna.tecnologia_ex < environment.algoritmo.limites.tecnologia_ex[1]){
+        Isla_actual.inversion.produccion_interna.tecnologia_ex += environment.algoritmo.crecimiento.tecnologia * Accion.tecnologia;
+      }   //considerar a gregar el apartado de tecnología excedente en lugar de crecimiento de tecnologia simplemente
     }
 }
 
   public Militar(Isla_actual: Isla, Accion: Acciones) {
     //Disminuir dinero y recursos
-      if (Isla_actual.dinero <= 10 && Isla_actual.reservas_dinero == 0) {
+      if (Isla_actual.dinero <= environment.algoritmo.limites.dinero[1] && Isla_actual.reservas_dinero == environment.algoritmo.limites.reservas_dinero[0]) {
         //agregar el caso de que sea =10
-        Isla_actual.dinero -= Accion.militar;
+        Isla_actual.dinero -= environment.algoritmo.costos_dinero.militar * Accion.militar;
       } else {
-        if(Isla_actual.reservas_dinero > Accion.militar){
-        Isla_actual.reservas_dinero -= Accion.militar;
+        if(Isla_actual.reservas_dinero > environment.algoritmo.costos_dinero.militar * Accion.militar){
+        Isla_actual.reservas_dinero -= environment.algoritmo.costos_dinero.militar * Accion.militar;
         }else{
-          Isla_actual.dinero -= (Accion.militar - Isla_actual.reservas_dinero);
-          Isla_actual.reservas_dinero = 0;
+          Isla_actual.dinero -= (environment.algoritmo.costos_dinero.militar * Accion.militar) - Isla_actual.reservas_dinero;
+          Isla_actual.reservas_dinero = environment.algoritmo.limites.reservas_dinero[0];
         }
       }
   
-      if (Isla_actual.recursos_naturales <= 10 && Isla_actual.reservas_recursos == 0) {
+      if (Isla_actual.recursos_naturales <= environment.algoritmo.limites.recursos[1] && Isla_actual.reservas_recursos == environment.algoritmo.limites.reservas_recursos[0]) {
         //agregar el caso de que sea =10
-        Isla_actual.recursos_naturales -= Accion.militar;
+        Isla_actual.recursos_naturales -= environment.algoritmo.costos_nat.militar * Accion.militar;
       } else{
-        if(Isla_actual.reservas_recursos > Accion.militar){
-          Isla_actual.reservas_recursos -= Accion.militar;
+        if(Isla_actual.reservas_recursos > environment.algoritmo.costos_nat.militar * Accion.militar){
+          Isla_actual.reservas_recursos -= environment.algoritmo.costos_nat.militar * Accion.militar;
           }else{
-            Isla_actual.recursos_naturales -= (Accion.militar - Isla_actual.reservas_recursos);
-            Isla_actual.reservas_recursos = 0;
+            Isla_actual.recursos_naturales -= (environment.algoritmo.costos_nat.militar * Accion.militar) - Isla_actual.reservas_recursos;
+            Isla_actual.reservas_recursos = environment.algoritmo.limites.reservas_recursos[0];
           }
       }
 
-      if(Isla_actual.inversion.produccion_interna.alimentos <=10 && Isla_actual.inversion.produccion_interna.alimentos_ex==0){
+      if(Isla_actual.inversion.produccion_interna.alimentos <= environment.algoritmo.limites.alimentos[1] && Isla_actual.inversion.produccion_interna.alimentos_ex == environment.algoritmo.limites.alimentos_ex[0]){
         Isla_actual.inversion.produccion_interna.alimentos -= Accion.militar;
       }else{
         if(Isla_actual.inversion.produccion_interna.alimentos_ex > Accion.militar){
-          Isla_actual.inversion.produccion_interna.alimentos_ex -= Accion.militar;
+          Isla_actual.inversion.produccion_interna.alimentos_ex -= environment.algoritmo.costos_alim.militar * Accion.militar;
         }else{
-          Isla_actual.inversion.produccion_interna.alimentos -= (Accion.militar-Isla_actual.inversion.produccion_interna.alimentos_ex);
-          Isla_actual.inversion.produccion_interna.alimentos_ex = 0;
+          Isla_actual.inversion.produccion_interna.alimentos -= (environment.algoritmo.costos_alim.militar * Accion.militar) - Isla_actual.inversion.produccion_interna.alimentos_ex;
+          Isla_actual.inversion.produccion_interna.alimentos_ex = environment.algoritmo.limites.alimentos_ex[0];
         }
       }
       
-      if(Isla_actual.inversion.produccion_interna.militar<Isla_actual.inversion.produccion_interna.tecnologia || Isla_actual.inversion.produccion_interna.tecnologia==10){
-      if (Isla_actual.inversion.produccion_interna.militar<10){
-        Isla_actual.inversion.produccion_interna.militar += Accion.militar;
-      }else if (Isla_actual.inversion.produccion_interna.militar_ex<10){
-        Isla_actual.inversion.produccion_interna.militar_ex += Accion.militar;
+      if(Isla_actual.inversion.produccion_interna.militar < Isla_actual.inversion.produccion_interna.tecnologia || Isla_actual.inversion.produccion_interna.tecnologia == environment.algoritmo.limites.tecnologia[1]){
+      if (Isla_actual.inversion.produccion_interna.militar < environment.algoritmo.limites.militar[1]){
+        Isla_actual.inversion.produccion_interna.militar += environment.algoritmo.crecimiento.militar * Accion.militar;
+      }else if (Isla_actual.inversion.produccion_interna.militar_ex < environment.algoritmo.limites.militar_ex[1]){
+        Isla_actual.inversion.produccion_interna.militar_ex += environment.algoritmo.crecimiento.militar * Accion.militar;
       }
   }
 }
 
   public Servicios(Isla_actual: Isla, Accion: Acciones) {
-    if (Isla_actual.dinero <= 10 && Isla_actual.reservas_dinero == 0) {
+    if (Isla_actual.dinero <= environment.algoritmo.limites.dinero[1] && Isla_actual.reservas_dinero == environment.algoritmo.limites.reservas_dinero[0]) {
       //agregar el caso de que sea =10
-      Isla_actual.dinero -= Accion.servicios;
+      Isla_actual.dinero -= environment.algoritmo.costos_dinero.servicios * Accion.servicios;
     } else {
-      if(Isla_actual.reservas_dinero > Accion.servicios){
-      Isla_actual.reservas_dinero -= Accion.servicios;
+      if(Isla_actual.reservas_dinero > environment.algoritmo.costos_dinero.servicios * Accion.servicios){
+      Isla_actual.reservas_dinero -= environment.algoritmo.costos_dinero.servicios * Accion.servicios;
       }else{
-        Isla_actual.dinero -= (Accion.servicios - Isla_actual.reservas_dinero);
-        Isla_actual.reservas_dinero = 0;
+        Isla_actual.dinero -= (environment.algoritmo.costos_dinero.servicios * Accion.servicios) - Isla_actual.reservas_dinero;
+        Isla_actual.reservas_dinero = environment.algoritmo.limites.reservas_dinero[0];
       }
     }
 
-    if (Isla_actual.recursos_naturales <= 10 && Isla_actual.reservas_recursos == 0) {
+    if (Isla_actual.recursos_naturales <= environment.algoritmo.limites.recursos[1] && Isla_actual.reservas_recursos == environment.algoritmo.limites.reservas_recursos[0]) {
       //agregar el caso de que sea =10
-      Isla_actual.recursos_naturales -= Accion.servicios;
+      Isla_actual.recursos_naturales -= environment.algoritmo.costos_nat.servicios * Accion.servicios;
     } else{
-      if(Isla_actual.reservas_recursos > Accion.servicios){
-        Isla_actual.reservas_recursos -= Accion.servicios;
+      if(Isla_actual.reservas_recursos > environment.algoritmo.costos_nat.servicios * Accion.servicios){
+        Isla_actual.reservas_recursos -= environment.algoritmo.costos_nat.servicios * Accion.servicios;
         }else{
-          Isla_actual.recursos_naturales -= (Accion.servicios - Isla_actual.reservas_recursos);
-          Isla_actual.reservas_recursos = 0;
+          Isla_actual.recursos_naturales -= (environment.algoritmo.costos_nat.servicios * Accion.servicios) - Isla_actual.reservas_recursos;
+          Isla_actual.reservas_recursos = environment.algoritmo.limites.reservas_recursos[0];
         }
     }
 
 
-     if(Isla_actual.inversion.produccion_interna.alimentos<10){   //Servicios me genera alimentos
-      Isla_actual.inversion.produccion_interna.alimentos += (Isla_actual.inversion.produccion_interna.servicios + Accion.servicios);
-      if(Isla_actual.inversion.produccion_interna.alimentos>10){
-        Isla_actual.inversion.produccion_interna.alimentos_ex+=(Isla_actual.inversion.produccion_interna.alimentos-10);
-        Isla_actual.inversion.produccion_interna.alimentos=10;
+     if(Isla_actual.inversion.produccion_interna.alimentos < environment.algoritmo.limites.alimentos[1]){   //Servicios me genera alimentos
+      Isla_actual.inversion.produccion_interna.alimentos += Isla_actual.inversion.produccion_interna.servicios + (environment.algoritmo.crecimiento.alimentos * Accion.servicios);
+      if(Isla_actual.inversion.produccion_interna.alimentos > environment.algoritmo.limites.alimentos[1]){
+        Isla_actual.inversion.produccion_interna.alimentos_ex  += (Isla_actual.inversion.produccion_interna.alimentos - environment.algoritmo.limites.alimentos[1]);
+        Isla_actual.inversion.produccion_interna.alimentos = environment.algoritmo.limites.alimentos[1];
       }
-     }else if(Isla_actual.inversion.produccion_interna.alimentos_ex<10){
-      Isla_actual.inversion.produccion_interna.alimentos_ex += (Isla_actual.inversion.produccion_interna.servicios + Accion.servicios);
+     }else if(Isla_actual.inversion.produccion_interna.alimentos_ex < environment.algoritmo.limites.alimentos_ex[1]){
+      Isla_actual.inversion.produccion_interna.alimentos_ex += Isla_actual.inversion.produccion_interna.servicios + (environment.algoritmo.crecimiento.alimentos * Accion.servicios);
     }
 
-     if (Isla_actual.inversion.produccion_interna.servicios<10){
-      Isla_actual.inversion.produccion_interna.servicios += Accion.servicios;
-      if(Isla_actual.inversion.produccion_interna.servicios>10){
-        Isla_actual.inversion.produccion_interna.servicios=10;
+     if (Isla_actual.inversion.produccion_interna.servicios < environment.algoritmo.limites.servicios[1]){
+      Isla_actual.inversion.produccion_interna.servicios += environment.algoritmo.crecimiento.servicios * Accion.servicios;
+      if(Isla_actual.inversion.produccion_interna.servicios > environment.algoritmo.limites.servicios[1]){
+        Isla_actual.inversion.produccion_interna.servicios = environment.algoritmo.limites.servicios[1];
       }
     }
   }
@@ -324,86 +331,86 @@ export class GameService {
   public Poblacion(Isla_actual: Isla) {
     if (Isla_actual.poblacion > Isla_actual.inversion.produccion_interna.alimentos) {
       Isla_actual.poblacion = Isla_actual.inversion.produccion_interna.alimentos; //Si los alimentos son 0, la poblacion también
-      Isla_actual.inversion.produccion_interna.alimentos = 0;
+      Isla_actual.inversion.produccion_interna.alimentos = environment.algoritmo.limites.alimentos[0];
     } else {
-      if(Isla_actual.inversion.produccion_interna.alimentos_ex==0){
+      if(Isla_actual.inversion.produccion_interna.alimentos_ex == environment.algoritmo.limites.alimentos_ex[0]){
         Isla_actual.inversion.produccion_interna.alimentos -= Isla_actual.poblacion; //consumo alimentos
       }else {
-        if(Isla_actual.inversion.produccion_interna.alimentos_ex<Isla_actual.poblacion){
+        if(Isla_actual.inversion.produccion_interna.alimentos_ex < Isla_actual.poblacion){
           Isla_actual.inversion.produccion_interna.alimentos -= (Isla_actual.poblacion - Isla_actual.inversion.produccion_interna.alimentos_ex);
-          Isla_actual.inversion.produccion_interna.alimentos_ex = 0; 
+          Isla_actual.inversion.produccion_interna.alimentos_ex = environment.algoritmo.limites.alimentos_ex[0]; 
         }else{
           Isla_actual.inversion.produccion_interna.alimentos_ex -= Isla_actual.poblacion; 
         } 
       }
     }
 
-    if(Isla_actual.poblacion<0){
-      Isla_actual.poblacion=0;
+    if(Isla_actual.poblacion < environment.algoritmo.limites.poblacion[0]){
+      Isla_actual.poblacion = environment.algoritmo.limites.poblacion[0];
     }
   }
 
   public Truncar(Isla_actual: Isla){
 
-    if(Isla_actual.poblacion>10){
-      Isla_actual.poblacion=10;
+    if(Isla_actual.poblacion > environment.algoritmo.limites.poblacion[1]){
+      Isla_actual.poblacion = environment.algoritmo.limites.poblacion[1];
     }
 
-    if(Isla_actual.inversion.educacion>10){
-      Isla_actual.inversion.educacion=10;
+    if(Isla_actual.inversion.educacion > environment.algoritmo.limites.educacion[1]){
+      Isla_actual.inversion.educacion = environment.algoritmo.limites.educacion[1];
     }
 
-    if(Isla_actual.inversion.infraestructura>10){
-      Isla_actual.inversion.infraestructura=10;
+    if(Isla_actual.inversion.infraestructura > environment.algoritmo.limites.infraestructura[1]){
+      Isla_actual.inversion.infraestructura = environment.algoritmo.limites.infraestructura[1];
     }
 
-    if(Isla_actual.inversion.inversion_interna>10){
-      Isla_actual.inversion.inversion_interna=10;
+    if(Isla_actual.inversion.inversion_interna > environment.algoritmo.limites.inversion_int[1]){
+      Isla_actual.inversion.inversion_interna = environment.algoritmo.limites.inversion_int[1];
     }
 
-    if(Isla_actual.inversion.produccion_interna.alimentos>10){
-      Isla_actual.inversion.produccion_interna.alimentos_ex += (Isla_actual.inversion.produccion_interna.alimentos-10);
-      Isla_actual.inversion.produccion_interna.alimentos=10;
-      if(Isla_actual.inversion.produccion_interna.alimentos_ex>10){
-        Isla_actual.inversion.produccion_interna.alimentos_ex=10;
+    if(Isla_actual.inversion.produccion_interna.alimentos > environment.algoritmo.limites.alimentos[1]){
+      Isla_actual.inversion.produccion_interna.alimentos_ex += (Isla_actual.inversion.produccion_interna.alimentos - environment.algoritmo.limites.alimentos[1]);
+      Isla_actual.inversion.produccion_interna.alimentos = environment.algoritmo.limites.alimentos[1];
+      if(Isla_actual.inversion.produccion_interna.alimentos_ex > environment.algoritmo.limites.alimentos_ex[1]){
+        Isla_actual.inversion.produccion_interna.alimentos_ex = environment.algoritmo.limites.alimentos_ex[1];
       }
     }
 
-    if(Isla_actual.inversion.produccion_interna.alimentos_ex>10){
-      Isla_actual.inversion.produccion_interna.alimentos_ex=10;
+    if(Isla_actual.inversion.produccion_interna.alimentos_ex > environment.algoritmo.limites.alimentos_ex[1]){
+      Isla_actual.inversion.produccion_interna.alimentos_ex = environment.algoritmo.limites.alimentos_ex[1];
     }
 
-    if(Isla_actual.inversion.produccion_interna.militar>10){
-      Isla_actual.inversion.produccion_interna.militar_ex += (Isla_actual.inversion.produccion_interna.militar-10);
-      Isla_actual.inversion.produccion_interna.militar=10;
-      if(Isla_actual.inversion.produccion_interna.militar_ex>10){
-        Isla_actual.inversion.produccion_interna.militar_ex=10;
+    if(Isla_actual.inversion.produccion_interna.militar > environment.algoritmo.limites.militar[1]){
+      Isla_actual.inversion.produccion_interna.militar_ex += (Isla_actual.inversion.produccion_interna.militar - environment.algoritmo.limites.militar[1]);
+      Isla_actual.inversion.produccion_interna.militar = environment.algoritmo.limites.militar[1];
+      if(Isla_actual.inversion.produccion_interna.militar_ex > environment.algoritmo.limites.militar_ex[1]){
+        Isla_actual.inversion.produccion_interna.militar_ex = environment.algoritmo.limites.militar_ex[1];
       }
     }
 
-    if(Isla_actual.inversion.produccion_interna.tecnologia>10){
-      Isla_actual.inversion.produccion_interna.tecnologia_ex += (Isla_actual.inversion.produccion_interna.tecnologia-10);
-      Isla_actual.inversion.produccion_interna.tecnologia=10;
-      if(Isla_actual.inversion.produccion_interna.tecnologia_ex>10){
-        Isla_actual.inversion.produccion_interna.tecnologia_ex=10;
+    if(Isla_actual.inversion.produccion_interna.tecnologia > environment.algoritmo.limites.tecnologia[1]){
+      Isla_actual.inversion.produccion_interna.tecnologia_ex += (Isla_actual.inversion.produccion_interna.tecnologia - environment.algoritmo.limites.tecnologia[1]);
+      Isla_actual.inversion.produccion_interna.tecnologia = environment.algoritmo.limites.tecnologia[1];
+      if(Isla_actual.inversion.produccion_interna.tecnologia_ex > environment.algoritmo.limites.tecnologia_ex[1]){
+        Isla_actual.inversion.produccion_interna.tecnologia_ex = environment.algoritmo.limites.tecnologia_ex[1];
       }
     }
 
-  if(Isla_actual.inversion.produccion_interna.servicios>10){
-    Isla_actual.inversion.produccion_interna.servicios=10;
+  if(Isla_actual.inversion.produccion_interna.servicios > environment.algoritmo.limites.servicios[1]){
+    Isla_actual.inversion.produccion_interna.servicios = environment.algoritmo.limites.servicios[1];
     }
   }
 
   public gameOver(Isla_actual: Isla){
-    if(Isla_actual.inversion.inversion_interna==0 && Isla_actual.dinero == -5){
+    if(Isla_actual.inversion.inversion_interna == environment.algoritmo.limites.inversion_int[0] && Isla_actual.dinero == -5){
       Isla_actual.isla_viva = false;
     }
 
-    if(Isla_actual.dinero == -5 && Isla_actual.recursos_naturales==0){
+    if(Isla_actual.dinero == -5 && Isla_actual.recursos_naturales == environment.algoritmo.limites.recursos[0]){
       Isla_actual.isla_viva = false;
     }
 
-    if (Isla_actual.poblacion == 0) {
+    if (Isla_actual.poblacion == environment.algoritmo.limites.poblacion[0]) {
       Isla_actual.isla_viva = false;
     }
   }
