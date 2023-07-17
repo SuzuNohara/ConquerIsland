@@ -12,7 +12,7 @@ export const environment = {
             poblacion: 1,
             infraestructura: 1,
             educacion: 1,
-            inversion_int:1,
+            inversion_int: 1,
             alimentos: 1,
             tecnologia: 1,
             militar: 1,
