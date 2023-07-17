@@ -16,6 +16,7 @@ export const environment = {
             alimentos: 1,
             tecnologia: 1,
             militar: 1,
+            servicios: 1,
             turno: 1
         },
         limites: {
@@ -33,6 +34,7 @@ export const environment = {
             tecnologia_ex: [0, 10],
             militar: [0,10],
             militar_ex: [0, 10],
+            servicios: [0,10]
         },
         costos_dinero: {
             infraestructura: 1,
@@ -43,7 +45,8 @@ export const environment = {
             tecnologia: 1,
             tecnologia_ex: 1,
             militar: 1,
-            militar_ex: 1
+            militar_ex: 1,
+            servicios: 1
         },
         costos_nat: {
             infraestructura: 1,
@@ -54,7 +57,13 @@ export const environment = {
             tecnologia: 1,
             tecnologia_ex: 1,
             militar: 1,
-            militar_ex: 1
+            militar_ex: 1,
+            servicios: 1
+        },
+        //agrego un coste de alimentos con las variables que los afectan
+        costos_alim: {
+            tecnologia: 1,
+            militar: 1
         }
     }
 }
