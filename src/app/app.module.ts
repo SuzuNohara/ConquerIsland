@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { IslaComponent } from './components/isla/isla.component';
 import { PersonaComponent } from './isla/persona/persona.component';
 import { TecnologiaComponent } from './isla/tecnologia/tecnologia.component';
+import { GuiadejuegoComponent } from './guiadejuego/guiadejuego.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TecnologiaComponent } from './isla/tecnologia/tecnologia.component';
     IslandComponent,
     IslaComponent,
     PersonaComponent,
-    TecnologiaComponent
+    TecnologiaComponent,
+    GuiadejuegoComponent
   ],
   imports: [
     BrowserModule,
