@@ -89,6 +89,7 @@ export class HomeComponent implements OnInit{
     this.isla = new Isla();
     this.isComp.updateIsla(this.isla);
     this.actions = new Acciones();
+    // this.game.test();
   }
 
   public gameOver(){
