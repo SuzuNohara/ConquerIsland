@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Acciones, Controles_Isla, Isla, Produccion } from 'src/app/dto/Isla';
 import { IslaComponent } from '../isla/isla.component';
 import { GameService } from 'src/app/service/game.service';
+import { BackendService } from 'src/app/service/backend.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit{
   public startgame: boolean;
   @ViewChild(IslaComponent) isComp!: IslaComponent;
 
-  constructor(private game: GameService) {
+  constructor(private game: GameService, private backend: BackendService) {
     this.isla = new Isla();
     this.actions = new Acciones();
     this.isla.inversion = new Controles_Isla();
@@ -98,6 +99,13 @@ export class HomeComponent implements OnInit{
 
   public victoria(){
     this.banner = true;
+    this.backend.saveScore("", this.isla.turno).then((data) => {
+      if(data){
+        // todo se guardo correctamente
+      }else{
+        // no se guardaron los datos
+      }
+    });
   }
 
   public upval(act: number, inc: number){
