@@ -1,12 +1,73 @@
 <div class="cont">
   <header class="header">
     <div class="logo">
-      <img src="assets/logg/logg/logo_op1.png" alt="Logo de la marca">
+      <div class="tooltip-container">
+        <span class="tooltip-trigger"
+          ><img src="assets/logg/logg/logo_op1.png" alt="Logo de la marca"
+        /></span>
+        <div class="tooltip-content">
+          <span class="tool-titulo">Tabla de posiciones:</span>
+          <div class="tool-cont">
+            <table class="listaP">
+              <tr class="filaMaster">
+                <td class="fila-elemento-master">Posición</td>
+                <td class="fila-elemento-master">Gamertag</td>
+                <td class="fila-elemento-master">Turnos</td>
+              </tr>
+
+              <tr class="fila">
+                <td class="fila-elemento">1°</td>
+                <td class="fila-elemento">Suzu</td>
+                <td class="fila-elemento">28</td>
+              </tr>
+
+              <tr class="fila">
+                <td class="fila-elemento">2°</td>
+                <td class="fila-elemento">Francisco</td>
+                <td class="fila-elemento">37</td>
+              </tr>
+
+              <tr class="fila">
+
+              <tr class="fila">
+                <td class="fila-elemento">3°</td>
+                <td class="fila-elemento">Otro</td>
+                <td class="fila-elemento">##</td>
+              </tr>
+
+              <tr class="fila">
+                <td class="fila-elemento">4°</td>
+                <td class="fila-elemento">Otro</td>
+                <td class="fila-elemento">##</td>
+              </tr>
+
+              <tr class="fila">
+                <td class="fila-elemento">5°</td>
+                <td class="fila-elemento">Otro</td>
+                <td class="fila-elemento">##</td>
+              </tr>
+
+              <tr class="fila">
+                <td class="fila-elemento">6°</td>
+                <td class="fila-elemento">Otro</td>
+                <td class="fila-elemento">##</td>
+              </tr>
+
+              <tr class="fila">
+                <td class="fila-elemento">7°</td>
+                <td class="fila-elemento">Otro</td>
+                <td class="fila-elemento">##</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
+
     <nav>
       <ul class="nav-links">
-        <li><a>Guia de Juego</a></li>
-        <li><a>Ranking</a></li>
+        <li><a routerLink="./guiadejuego/guiadejuego.component.html">Guia de Juego</a></li>
+        <li><a routerLink="./guiadejuego/ranking.component.html">Ranking</a></li>
       </ul>
     </nav>
     <a class="btn"><button (click)="newGame()">New Game</button></a>
@@ -41,7 +102,7 @@
     <div class="Item">Item 2</div>
     <div class="Item">Item 3</div>
   </div> -->
-  <div class="i-content">
+  <!-- <div class="i-content">
     <app-isla [status]="isla"></app-isla>
     <button type="button" class="btn btn-outline-primary abs info btn-lg" data-bs-toggle="modal" data-bs-target="#actions_modal">Informacion</button>
     <button type="button" class="btn btn-outline-primary abs act btn-lg" data-bs-toggle="modal" data-bs-target="#info_modal">Acciones</button>
@@ -277,8 +338,8 @@
 <img *ngIf="startgame" src="assets/game/binev.png" class="game" alt="" srcset="">
 <img *ngIf="isla.victoria" src="assets/game/win.png" class="game" alt="" srcset="">
 <img *ngIf="!isla.isla_viva" src="assets/game/gameover.png" class="gameover" alt="" srcset="">
-<button type="button" class="btn btn-outline-primary btn--banner abs btn-lg" data-bs-toggle="modal" data-bs-target="#actions_modal" *ngIf="!isla.isla_viva || isla.victoria">Informacion</button>
-<!-- 
+<button type="button" class="btn btn-outline-primary btn--banner abs btn-lg" data-bs-toggle="modal" data-bs-target="#actions_modal" *ngIf="!isla.isla_viva || isla.victoria">Informacion</button> -->
+  <!-- 
   cambiuos prueba
   Cambios de master
   cambios de otra cosas
@@ -286,3 +347,4 @@
   cambios de master 2
   otros cambios
  -->
+</div>
