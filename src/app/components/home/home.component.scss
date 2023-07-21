@@ -1,4 +1,4 @@
-.cont {
+.contenido-principal {
     position: absolute;
     height: 100vh;
     width: 100vw;
@@ -65,7 +65,63 @@
     transform: scale(1.1);
 }
 
+/*GUIA DE JUEGO*/
+.tooltip-container {
+    position: relative;
+  }
+  
+  .tooltip-content {
+    font-size: 19px;
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    z-index: 1; 
+    width: 650px; 
+    height: 600px;
 
+    top: 100%;
+    left: 120.5%;
+
+
+    box-shadow: 0 0 10px #f3f3f3d4;
+    padding: 2rem 2rem;
+    border-radius: 10px;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .tooltip-container:hover .tooltip-content {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .tool-titulo{
+    color: #C04BF2;
+    font-size: 27px;
+    margin-left: 2%;
+    font-style: italic;
+    font-weight: bold;
+   }
+   .list{
+       color: #7df2fce0;
+       font-size: 20px;
+       font-weight: bold;
+   }
+   .tool-cont{
+    margin-left: 6%;
+    margin-right: 7%;
+    margin-bottom: 1%;
+    margin-top: 1%
+   }
+
+  .lista-ul{
+    list-style-type: square;
+    list-style-position: inside;
+   }
+   /*BODY*/
+
+   
 /*MEDIA SCREEN*/
 @media screen and (max-width: 800px){
     .header .btn button{

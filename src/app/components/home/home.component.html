@@ -1,11 +1,46 @@
-<div class="cont">
+<div class="contenido-principal">
   <header class="header">
+
     <div class="logo">
-      <img src="assets/logg/logg/logo_op1.png" alt="Logo de la marca">
+      <div class="tooltip-container">
+        <span class="tooltip-trigger"><img src="assets/logg/logg/logo_op1.png" alt="Logo de la marca"></span>
+        <div class="tooltip-content">
+          <span class="tool-titulo">Objetivo:</span>
+          <div class="tool-cont">
+            Hacer progresar tu isla desde 0, usando los recursos disponibles y maximizando los indicadores económicos en pocos turnos.
+          </div>
+          <span class="tool-titulo">Acciones disponibles:</span>
+          <div class="tool-cont">
+            <ul class="lista-ul">
+              <li>
+               <span class="list"> Inversión en Infraestructura:</span> Aumenta población y producción de alimentos en 1 unidad.
+              </li>
+              <li>
+                <span class="list">Inversión en Infraestructura:</span> Aumenta población y producción de alimentos en 1 unidad.
+              </li>
+              <li>
+                <span class="list">Inversión en Educación:</span> Invirtiendo en Tecnología.
+              </li>
+              <li>
+                <span class="list"> Inversión Interna:</span> Produce 0.5 de dinero por punto invertido.
+              </li>
+              <li>
+                <span class="list"> Inversión en Tecnología:</span> Mejora la capacidad para invertir en lo militar (consume 1 alimento).
+              </li>
+              <li>
+                <span class="list">Inversión Militar:</span> Defiende tu isla de ataques.
+              </li>
+              <li>
+                <span class="list">Inversión en Servicios:</span> Genera alimentos y crea relaciones con otros países.
+              </li>
+            </ul>
+          </div>  
+        </div>
+    </div>
     </div>
     <nav>
       <ul class="nav-links">
-        <li><a>Guia de Juego</a></li>
+        <li><a routerLink="./guiadejuego/guiadejuego.component.html">Guia de Juego</a></li>
       </ul>
     </nav>
     <a class="btn"><button (click)="newGame()">New Game</button></a>
