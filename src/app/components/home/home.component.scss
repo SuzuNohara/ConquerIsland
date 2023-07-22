@@ -43,9 +43,11 @@
 .header .nav-links a {
     font-size: 24px;
     color: #eceff1;
+    text-decoration:none;
 }
 .header .nav-links a:hover {
     color: #6A68EF;
+    text-decoration:none;
 }
 .header .btn button{
     margin-left: 20px;
@@ -57,6 +59,7 @@
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
+    text-decoration:none;
 }
 
 .header .btn button:hover{
@@ -68,6 +71,7 @@
 /*GUIA DE JUEGO*/
 .tooltip-container {
     position: relative;
+    display: inline-block;
   }
   
   .tooltip-content {
@@ -81,7 +85,7 @@
 
     top: 100%;
     left: 120.5%;
-
+    pointer-events: none;
 
     box-shadow: 0 0 10px #f3f3f3d4;
     padding: 2rem 2rem;
@@ -93,6 +97,7 @@
   
   .tooltip-container:hover .tooltip-content {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
   }
 
