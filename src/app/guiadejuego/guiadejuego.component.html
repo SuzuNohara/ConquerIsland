@@ -1,9 +1,109 @@
 <div class="contenido-principal">
-    <header class="header">
-        <div class="logo">
-            <img src="assets/logg/logg/logo_op1.png" alt="Logo de la marca" class="activador-tooltip">
+  <header class="header">
+    <div class="logo">
+      <a routerLink="/" class="back-button">
+        <div class="arrow"></div></a>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li class="guia">Guia de Juego</li>
+      </ul>
+    </nav>
+  </header>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <a class="btn" routerLink="/"><button>Inicio</button></a>
-      </header>
-
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/assets/logg/logg/logo_op3.png" class="d-block fil" alt="...">
+            <div class="carousel-caption d-none d-md-block fondo">
+              <h5><img src="/assets/logg/logg/logo_op3 - Copy.png" class="imagen"></h5>
+              <p class="subt"><span class="bienv">Bienvenido a la guía de juego del videojuego "Conquer Island".</span><br>
+                En este juego, tendrás que tomar decisiones estratégicas para desarrollar tu 
+                isla y maximizar tus indicadores económicos en la menor cantidad de turnos. </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/assets/4 ciudad_futurista/isla_poblada/future_city.png" class="d-block fil2" alt="...">
+            <div class="carousel-caption d-none d-md-block fondo">
+              <h5>Etiqueta de la segunda diapositiva</h5>
+              <p class="subt">El objetivo del juego es hacer progresar tu isla desde 0, haciendo un uso óptimo de los 
+                recursos disponibles y encontrando relaciones que te permitan alcanzar el nivel máximo en 
+                tus indicadores económicos en la menor cantidad de turnos.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/assets/edad1/poblada.png" class="d-block fil3" alt="...">
+            <div class="carousel-caption d-none d-md-block fondo">
+              <h5>Etiqueta de la tercera diapositiva</h5>
+              <p class="subt">Existen dos formas de perder en el juego:
+                Si tu población supera tu producción de alimentos y no tienes suficientes recursos naturales para satisfacer a tu población, perderás el juego.
+                Si acabas con tus recursos naturales y no has invertido en opciones que te permitan recuperarlos, también perderás.
+                </p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+<div class="acciones-dis">
+    Acciones disponibles
+  </div>
+  <div class="contenedor">
+    <div>
+      <h2 class="titulo-a">Acciones</h2>
+      <p>En el botón "ACCIONES", tienes las siguientes opciones para invertir:</p>
+      <ol>
+        <li>Inversión en Infraestructura: Incrementa tu población y producción de alimentos en 1 unidad.</li>
+        <li>Inversión en Educación: Te permite invertir en Tecnología.</li>
+        <li>Inversión Interna: Produce dinero a una tasa de 0.5 por cada punto invertido en ella.</li>
+        <li>Inversión en Tecnología: Aumenta tu capacidad para invertir en lo militar (consume 1 de alimentos).</li>
+        <li>Inversión Militar: Te permite defenderte de ataques y mantener protegida tu isla.</li>
+        <li>Inversión en Servicios: Te permite generar alimentos y crear relaciones con otros países.</li>
+      </ol>
+      <span class="recordatorio">Recuerda que cada opción tiene un límite de 10 unidades.</span>
+    </div>
+    <div>
+      <h2 class="titulo-a">Información</h2>
+      <p>En el botón "INFORMACIÓN", tienes tres pestañas para obtener información detallada:</p>
+      <ol>
+        <li>Información básica: Muestra los siguientes indicadores
+          <ul>
+            <li>Población</li>
+            <li>Dinero</li>
+            <li>Dinero Excedente</li>
+            <li>Recursos Naturales</li>
+            <li>Recursos Naturales Excedentes</li>
+          </ul>
+        </li>
+        <li>Inversión: Muestra el nivel actual de inversión en las siguientes áreas
+          <ul>
+            <li>Infraestructura</li>
+            <li>Educación</li>
+            <li>Interna</li>
+          </ul>
+        </li>
+        <li>Producción Interna: Muestra la producción actual en las siguientes áreas
+          <ul>
+            <li>Alimentos</li>
+            <li>Tecnología</li>
+            <li>Militar</li>
+            <li>Servicios</li>
+            <li>Alimentos Excedentes</li>
+            <li>Tecnología Excedente</li>
+            <li>Militar Excedente</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
 </div>

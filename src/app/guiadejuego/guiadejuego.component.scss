@@ -1,48 +1,191 @@
 .contenido-principal {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    overflow: scroll;
-    background-color: #0E0B1E;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vw;
+  background-color: #0E0B1E;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
 }
 /*BARRA DE NAVEGACION*/
 .header {
-    background-color: #0E0B1E;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 90px;
-    padding: 5px 10%;
+  background-color: #0E0B1E;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 90px;
+  padding: 5px 10%;
 }
 .header .logo {
-    margin-right: auto;
+  margin-right: auto;
 }
 .header .logo img {
-    height: 70px;
-    width: auto;
-    transition: all 0.3s;
+  height: 70px;
+  width: auto;
+  transition: all 0.3s;
 }
 
 .header .logo img:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
+}
+.header .nav-links {
+  list-style: none;
 }
 
-.header .btn button{
-    margin-left: 20px;
-    font-size: 20px;
-    color: #eceff1;
-    padding: 9px 50px;
-    background: radial-gradient(circle, rgba(126, 95, 226, 1) 0%, rgba(58, 126, 234, 1) 50%, rgba(76, 159, 217, 1) 100%);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-    text-decoration:none;
+.header .nav-links li {
+  display: inline-block;
+  padding: 0 20px;
+}
+.header .nav-links li:hover{
+  transform: scale(1.1);
 }
 
-.header .btn button:hover{
-    background-color: #e2f1f8;
-    color: #eceff1;
-    transform: scale(1.1);
+.guia{
+  font-size: 30px;
+  color: white;
+  background-image:  radial-gradient(circle, rgba(126, 95, 226, 1) 0%, rgba(58, 126, 234, 1) 50%, rgba(76, 159, 217, 1) 100%);
+  background-size: 600% 100%;
+  color: transparent;
+  background-clip: text;
+  animation: rainbow-animation 4s linear infinite;
 }
+
+.back-button {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: radial-gradient(circle, rgba(126, 95, 226, 1) 0%, rgba(58, 126, 234, 1) 50%, rgba(76, 159, 217, 1) 100%);
+  background-size: 600% 600%;
+  color: transparent;
+  background-position: 0% 50%;
+  animation: rainbow-animation 8s linear infinite;
+}
+.back-button:hover {
+  transform: scale(1.1);
+}
+.arrow {
+  width: 20px;
+  height: 20px;
+  border-left: 7px solid #fff;
+  border-bottom: 7px solid #fff;
+  transform: rotate(49deg);
+}
+
+@keyframes rainbow-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+    /*HEADER*/
+    .carousel-item .fil {
+      width: 30.5% !important;  
+      display: block;
+      margin: 0 auto; 
+      filter: blur(1px)!important;
+    }
+    .carousel-item .fil2 {
+      width: 26.1% !important;  
+      display: block;
+      margin: 0 auto; 
+      filter: blur(1px)!important;
+    }
+    .carousel-item .fil3 {
+      width: 32.5% !important;  
+      display: block;
+      margin: 0 auto; 
+      filter: blur(1px)!important;
+    }
+  .imagen {
+      width: 30% !important;  
+      display: block;
+      margin: 0 auto; 
+  
+  }
+  .fondo{
+      background-color: #0e0b1e59;
+      border-radius: 10%;
+  }
+  .subt{
+   font-size: 22px;
+   font-style: italic;
+   text-align: justify;
+  }
+  .bienv{
+      font-size: 30px;
+      font-weight: bold;
+      font-style: oblique;
+      margin-left: 150px;
+     animation: fadeInOut 3s infinite !important;
+  }
+  @keyframes fadeInOut {
+      0% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    /*BODY*/
+    .acciones-dis {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      color: #fff;
+      font-size: 50px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      margin-top: 70px;
+    }
+
+    .contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .contenedor > div {
+      width: 40%;
+      background-color: #f8d8dd3e;
+     border-radius: 15px;
+      padding: 20px;
+      margin: 10px;
+      box-sizing: border-box;
+      color: #fff;
+    }
+
+    .titulo-a {
+      margin-bottom: 15px;
+      font-size: 40px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    ol {
+      padding-left: 20px;
+    }
+
+    .recordatorio {
+      display: block;
+      font-size: 14px;
+      font-style: italic;
+      color: #888;
+      margin-top: 15px;
+    }
+    .contenedor ol {
+      columns: 2; /* Indicamos que queremos 2 columnas */
+      column-gap: 20px; /* Espacio entre las columnas */
+      padding-left: 0; /* Quitamos el padding izquierdo para que no haya doble espacio */
+    }
+    
+    .contenedor li {
+      list-style: decimal inside; /* Estilo de la numeración dentro de las columnas */
+    }
