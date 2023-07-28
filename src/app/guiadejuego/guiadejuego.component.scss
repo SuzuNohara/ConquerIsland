@@ -1,14 +1,18 @@
+
 .contenido-principal {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
-  height: 100vw;
+  width: 100%;
   background-color: #0E0B1E;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   box-sizing: border-box; 
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  min-height: 100px;
 }
+
 /*BARRA DE NAVEGACION*/
 .header {
   background-color: #0E0B1E;
@@ -111,6 +115,12 @@
       margin: 0 auto; 
   
   }
+  .aju1{
+    width: 55% !important;
+  }
+  .aju2{
+    width: 60% !important;
+  }
   .fondo{
       background-color: #0e0b1e59;
       border-radius: 10%;
@@ -150,21 +160,26 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      font-size: 18px;
+    font-style: italic;
+    text-align: justify;
     }
 
     .contenedor > div {
       width: 40%;
-      background-color: #f8d8dd3e;
+     background-color:  rgba(141, 141, 141, 0.334);
      border-radius: 15px;
-      padding: 20px;
+      padding: 25px;
       margin: 10px;
       box-sizing: border-box;
       color: #fff;
     }
-
+    .titulo-acc{
+      width: 700px;
+    }
     .titulo-a {
       margin-bottom: 15px;
-      font-size: 40px;
+      font-size: 30px;
       font-weight: bold;
       text-align: center;
     }
@@ -175,17 +190,143 @@
 
     .recordatorio {
       display: block;
-      font-size: 14px;
+      font-size: 25px;
       font-style: italic;
-      color: #888;
+      font-weight: bold;
+      color: #6A68EF;
       margin-top: 15px;
+      margin-left: 8%;
+      margin-right: 8%;
+      animation: fadeInOut 3s infinite !important;
     }
-    .contenedor ol {
-      columns: 2; /* Indicamos que queremos 2 columnas */
-      column-gap: 20px; /* Espacio entre las columnas */
-      padding-left: 0; /* Quitamos el padding izquierdo para que no haya doble espacio */
+    .list-2 {
+      columns: 2; 
+      column-gap: 10px; 
+      margin-top: 2.5%;
+      margin-bottom: 1.5%;
     }
-    
-    .contenedor li {
-      list-style: decimal inside; /* Estilo de la numeración dentro de las columnas */
+    .list-span{
+      color: #7df2fce0;
+      font-size: 20px;
+      font-weight: bold;
+  }
+  .sub-a{
+    color: #C04BF2;;
+  }
+  .separacion-list{
+    margin-top: 2%;
+    margin-bottom: 1.5%;
+  }
+  /*SEGUNDA PARTE*/
+  .contenedor-segundo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; 
+    margin-top: 5%;
+  }
+  
+  .colum1 {
+    width: 50%;
+    padding: 3%;
+    position: relative; /* Add relative positioning for proper placement of .img-cond */
+  }
+  
+  .colum2 {
+    width: 50%;
+    position: relative;
+    padding: 3%;
+  }
+  
+  .img-cond {
+    width: 60%; /* Adjust the width to fill the container */
+    display: block; /* Remove absolute positioning for proper alignment */
+    margin-top: 5%;
+    margin-bottom: 2%;
+    margin-left: 15%;
+  }
+  
+  .text {
+    font-size: 24px; /* Reduce the font size for better readability */
+    text-align: justify;
+    margin-left: 12%; /* Justify the text for a cleaner appearance */
+    margin-top: 6%;
+    color:#fff;
+  }
+  //NO TOCAR
+  @mixin animation-delay($delay: 20) {
+    $t: 0;
+    $i: -$delay;
+    @while $i <= $delay/2 {
+      &:nth-child(#{$t}) {
+        animation-delay: $i+s;
+      }
+      $t: $t + 1;
+      $i: $i + $delay/4;
     }
+  }
+
+
+.container {
+  width: 50%;
+  position: relative;
+  perspective: 3000px;
+  left: 15.5%;
+}
+
+#carousel {
+  position: relative;
+
+}
+
+#carousel figure {
+  display: block;
+  animation: rotate 20000ms ease-in-out infinite;
+  @include animation-delay;
+  position: absolute;
+  background-color: white;
+  padding: 10em 8em;
+  text-align: center;
+  min-width: 66%;
+  
+}
+
+@keyframes rotate {
+  0%, 20%, 96%, 100% {
+    transform: rotateY(45deg) scale(.6);
+    right: 0; 
+    box-shadow: 0 0 10px rgba(black,.5);  
+    z-index: -1;
+    -webkit-filter: opacity(80%) blur(3px);
+
+  }
+ 
+  21%, 45% {
+    transform: rotateY(0deg) scale(1);
+    right: 40%; 
+    box-shadow: 0 0 20px rgba(black,1);
+    z-index: 100;
+    -webkit-filter: opacity(100%) blur(0px);
+
+  }
+  
+  
+  46%,70% {
+    transform: rotateY(-45deg) scale(.6);
+    right: 81%; 
+    box-shadow: 0 0 10px rgba(black,.5);
+    z-index: -1;
+    -webkit-filter: opacity(80%) blur(3px);
+
+  }
+
+  
+  71%, 95% {
+    transform: rotateY(-90deg) scale(.6);
+    right: 80%; 
+    box-shadow: 0 0 10px rgba(black,0);
+    z-index: 0;
+    -webkit-filter: opacity(0%) blur(0px);
+  }
+
+}
