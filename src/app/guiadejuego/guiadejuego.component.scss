@@ -20,7 +20,10 @@
   justify-content: flex-end;
   align-items: center;
   height: 90px;
+  width: 100%;
   padding: 5px 10%;
+  position: fixed; /* Cambio de static a fixed */
+  z-index: 10;
 }
 .header .logo {
   margin-right: auto;
@@ -108,6 +111,9 @@
       display: block;
       margin: 0 auto; 
       filter: blur(1px)!important;
+    }
+    .carousel-item{
+      margin-top: 6%;
     }
   .imagen {
       width: 30% !important;  
@@ -253,6 +259,57 @@
     margin-top: 6%;
     color:#fff;
   }
+  .buena-su{
+    margin-left: 34%;
+    font-size: 28px;
+    color: #C04BF2;
+    animation: fadeInOut 3s infinite !important;
+  }
+  .imagen-dinero{
+    width: 60%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+  }
+  .imagen-alimn{
+    width: 55%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+  }
+  .imagen-pobl{
+    width: 47%;
+  }
+  .titulo-carr{
+    font-size: 22px;
+  }
+  .elem{
+    margin-top: 1%;
+    padding: 2px;
+    margin-bottom: 2%;
+  }
+  .progress-container {
+    margin-top: 7%;
+    margin-bottom: 3%;
+    margin-left: 3%;
+    width: 150px;
+    height: 20px;
+    border: 1px solid #6A68EF;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    width: 100%; 
+    transition: width 0.5s ease;
+  }
+  .progress-bar::-webkit-progress-value {
+    background-color:#C04BF2;
+  }
+
+  /* For Firefox */
+  .progress-bar::-moz-progress-bar {
+    background-color:#C04BF2;
+  }
   //NO TOCAR
   @mixin animation-delay($delay: 20) {
     $t: 0;
@@ -284,10 +341,11 @@
   animation: rotate 20000ms ease-in-out infinite;
   @include animation-delay;
   position: absolute;
-  background-color: white;
-  padding: 10em 8em;
+  background-color: #333;
+  padding: 3.5em;
   text-align: center;
   min-width: 66%;
+ color: #fff;
   
 }
 
