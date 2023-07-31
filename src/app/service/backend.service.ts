@@ -26,28 +26,43 @@ export class BackendService {
 
   public getScore(puntuaciones: Puntuacion[]): Promise<Puntuacion[]>{
     return new Promise((resolve) => {
-      this.quickSort(puntuaciones);
+      this.quickSort(puntuaciones, 0, puntuaciones.length - 1);
       resolve(puntuaciones);
     });
   }
   
-  private quickSort(arr: Puntuacion[]): Puntuacion[] {
-    if (arr.length <= 1) {
-      return arr;
-    }
-  
-    const pivot = arr[0];
-    const left = [];
-    const right = [];
-  
-    for (let i = 1; i < arr.length; i++) {
-      if (arr[i].turnos < pivot.turnos) {
-        left.push(arr[i]);
-      } else {
-        right.push(arr[i]);
-      }
-    } 
-    return [...this.quickSort(left), pivot, ...this.quickSort(right)];
-  }
+  private quickSort(arr: Puntuacion[], low: number, high: number)
+   {
+       if(low < high)
+       {
+           const p = this.partition(arr, low, high);
+
+           this.quickSort(arr, low, p - 1);
+           this.quickSort(arr, p + 1, high);
+       }
+   }
+
+   private partition(arr: Puntuacion[], low: number, high: number) : number
+   {
+       const pivot = arr[high];
+       let i = low;
+       for(let j = low; j < high; j++)
+       {
+           if(arr[j].turnos < pivot.turnos)
+           {
+               this.swap(arr, i, j);
+               i++;
+           }
+       }
+       this.swap(arr, i, high);
+       return i;
+   }
+
+   private swap(arr: Puntuacion[], a: number, b: number)
+   {
+       const tmp = arr[a];
+       arr[a] = arr[b];
+       arr[b] = tmp;
+   }
 
 }
