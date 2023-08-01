@@ -405,9 +405,7 @@
   .contenedor > div {
     width: 95%;
   }
-  .carousel-item{
-    margin-top: 30%;
-  }
+
   .contenedor-segundo {
     display: flex;
     flex-direction: column;
@@ -420,7 +418,7 @@
   
   .colum2 {
     width: 100%;
-    margin-bottom: 100%;
+    margin-bottom: 65%;
     order: -1;
   }
   .container {
@@ -429,16 +427,35 @@
   .buena-su{
     margin-left: 20%;
   } 
-  .imagen {
-    width: 5% !important;  
-    display: block;
-    margin: 0 auto; 
+  .subt {
+    font-size: 14px;
+  }
+  .acciones-dis{
+    margin-top: 27px;
+}
+  /*  carrusel */
+  .carousel-item{
+    margin-top: 37%;
+  }
+  .bienv{
+    font-size: 15px;
+   margin-left: 15px;
+}
+.carousel-item .fil {
+  width: 65.5% !important;  
+}
+.carousel-item .fil2 {
+  width: 56.1% !important;  
 
 }
+.carousel-item .fil3 {
+  width: 69.5% !important;  
 }
+}
+
 @media (min-width:768px) and (max-width:1023px){
   .carousel-item{
-    margin-top: 33%;
+    margin-top: 23%;
   }
   .contenedor {
     display: flex;
