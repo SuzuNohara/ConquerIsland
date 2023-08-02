@@ -15,6 +15,9 @@ export class HomeComponent implements OnInit{
   public banner: boolean;
   public startgame: boolean;
   @ViewChild(IslaComponent) isComp!: IslaComponent;
+  public size: number;
+  public center: number;
+  public orientation: boolean;// true = celular, false = laptop
 
   constructor(private game: GameService) {
     this.isla = new Isla();
@@ -26,6 +29,9 @@ export class HomeComponent implements OnInit{
     this.isla.inversion.infraestructura = 0;
     this.banner = true;
     this.startgame = true;
+    this.size = window.innerWidth < window.innerHeight ? window.innerWidth: window.innerHeight;
+    this.orientation = window.innerWidth < window.innerHeight;
+    this.center = this.orientation? 0: (window.innerWidth - window.innerHeight) / 2;
   }// funcion de isla inicial (parametros iniciales de la isla)
 
   ngOnInit(): void {

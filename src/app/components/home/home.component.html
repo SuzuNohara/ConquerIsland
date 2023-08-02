@@ -44,7 +44,7 @@
     </nav>
     <a class="btn"><button (click)="newGame()">New Game</button></a>
   </header>
- <div class="i-content">
+ <div class="i-content" [ngStyle]="{'margin-left': center + 'px'}" [ngClass]="{'i-width': orientation, 'i-height': !orientation}">
     <app-isla [status]="isla"></app-isla>
     <button type="button" class="btn btn-outline-primary abs info btn-lg" data-bs-toggle="modal" data-bs-target="#actions_modal">Informacion</button>
     <button type="button" class="btn btn-outline-primary abs act btn-lg" data-bs-toggle="modal" data-bs-target="#info_modal">Acciones</button>
