@@ -8,66 +8,66 @@
         <img [ngStyle]="{'width': 10.5 + orientation,'height': 9.5 + orientation }" src="assets/edad1/isla.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
         <!--Dinero-->
-        <div class="objeto objeto-dinero" [ngStyle]="{'top': 15.7 + orientation, 'right': 10 + orientation}" *ngIf="isla.dinero >=1"><!-- La posicion del objeto se maneja desde este contenedor -->
+        <div class="objeto objeto-dinero" [ngStyle]="{'top': 22 + orientation, 'right': 10 + orientation}" *ngIf="isla.dinero >=1"><!-- La posicion del objeto se maneja desde este contenedor -->
             <img [ngStyle]="{'width': 4 + orientation }" src="assets/iconos/dinero/op3.1.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
         </div>
-        <div class="objeto objeto-dinero" [ngStyle]="{'top': 15.7 + orientation, 'right': 16 + orientation}" *ngIf="isla.dinero>=5 && isla.dinero <=10"><!-- La posicion del objeto se maneja desde este contenedor -->
+        <div class="objeto objeto-dinero" [ngStyle]="{'top': 22 + orientation, 'right': 16 + orientation}" *ngIf="isla.dinero>=5 && isla.dinero <=10"><!-- La posicion del objeto se maneja desde este contenedor -->
             <img [ngStyle]="{'width': 4 + orientation }" src="assets/iconos/dinero/op3.1.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
         </div>
     <!--CUEVA-->
-    <div class="objeto objeto-cueva" [ngStyle]="{'top': 45 - (isla.inversion.infraestructura * 2) + orientation, 'left': 15.5 - (isla.inversion.infraestructura * 2) + orientation}" *ngIf="isla.inversion.infraestructura >= 1 && isla.inversion.infraestructura<=4"><!-- La posicion del objeto se maneja desde este contenedor -->
+    <div class="objeto objeto-cueva" [ngStyle]="{'top': 50 - (isla.inversion.infraestructura * 2) + orientation, 'left': 15.5 - (isla.inversion.infraestructura * 2) + orientation}" *ngIf="isla.inversion.infraestructura >= 1 && isla.inversion.infraestructura<=4"><!-- La posicion del objeto se maneja desde este contenedor -->
         <img [ngStyle]="{'width': isla.inversion.infraestructura * 2 + 10 + orientation }" src="assets/edad1/cueva.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
         <!--Casa-->
-        <div class="objeto objeto-cueva" [ngStyle]="{'top': 48.5 - (isla.inversion.infraestructura) + orientation, 'left': 10.5 - (isla.inversion.infraestructura) + orientation}" *ngIf="isla.inversion.infraestructura >= 5 && isla.inversion.infraestructura<=10"><!-- La posicion del objeto se maneja desde este contenedor -->
+        <div class="objeto objeto-cueva" [ngStyle]="{'top': 48.5 - (isla.inversion.infraestructura) + orientation, 'left': 13.5 - (isla.inversion.infraestructura) + orientation}" *ngIf="isla.inversion.infraestructura >= 5 && isla.inversion.infraestructura<=10"><!-- La posicion del objeto se maneja desde este contenedor -->
             <img [ngStyle]="{'width': isla.inversion.infraestructura * 2 + 5 + orientation }" src="assets/edad1/casa_pobre.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
         </div>
     <!--Fuego-->
-    <div class="objeto objeto-fuego" [ngStyle]="{'top': 71.5 + orientation, 'left': 9.5 + orientation}" *ngIf="isla.inversion.produccion_interna.tecnologia > 3"><!-- La posicion del objeto se maneja desde este contenedor -->
-        <img [ngStyle]="{'width': 14 + orientation}" src="assets/edad1/fuego.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
+    <div class="objeto objeto-fuego" [ngStyle]="{'top': 55 + orientation, 'left': 9.5 + orientation}" *ngIf="isla.inversion.produccion_interna.tecnologia > 3"><!-- La posicion del objeto se maneja desde este contenedor -->
+        <img [ngStyle]="{'width': 11 + orientation}" src="assets/edad1/fuego.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
     <!--LANZA-->
-    <div class="objeto objeto-lanza" [ngStyle]="{'top': 80 + orientation, 'left': 38 + orientation}" *ngIf="isla.inversion.produccion_interna.tecnologia > 5"><!-- La posicion del objeto se maneja desde este contenedor -->
+    <div class="objeto objeto-lanza" [ngStyle]="{'top': 66.5 + orientation, 'left': 38 + orientation}" *ngIf="isla.inversion.produccion_interna.tecnologia > 5"><!-- La posicion del objeto se maneja desde este contenedor -->
         <img [ngStyle]="{'width': 18 + orientation}" src="assets/edad1/lanza.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
     <!--Pieles-->
-    <div class="objeto objeto-pieles" [ngStyle]="{'top': 70 + orientation, 'left': 78 + orientation}" *ngIf="isla.inversion.produccion_interna.tecnologia > 7"><!-- La posicion del objeto se maneja desde este contenedor -->
-        <img [ngStyle]="{'width': 18 + orientation}" src="assets/edad1/pieles.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
+    <div class="objeto objeto-pieles" [ngStyle]="{'top': 60 + orientation, 'left': 78 + orientation}" *ngIf="isla.inversion.produccion_interna.tecnologia > 7"><!-- La posicion del objeto se maneja desde este contenedor -->
+        <img [ngStyle]="{'width': 8 + orientation}" src="assets/edad1/pieles.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
     <!--Pinturas-->
-    <div class="objeto objeto-pinturas" [ngStyle]="{'top': 70 + orientation, 'left': 68 + orientation}" *ngIf="isla.inversion.produccion_interna.tecnologia > 9"><!-- La posicion del objeto se maneja desde este contenedor -->
-        <img [ngStyle]="{'width': 15 + orientation}" src="assets/edad1/pintura.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
+    <div class="objeto objeto-pinturas" [ngStyle]="{'top': 58 + orientation, 'left': 72 + orientation}" *ngIf="isla.inversion.produccion_interna.tecnologia > 9"><!-- La posicion del objeto se maneja desde este contenedor -->
+        <img [ngStyle]="{'width': 5 + orientation}" src="assets/edad1/pintura.png" alt="" srcset=""><!-- El tamano y dimensiones del objeto se controla desde el img -->
     </div>
     <!--POBLACION-->
-    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 22 + orientation, 'left': 40 + orientation}" *ngIf="isla.poblacion >= 1">
-        <img [ngStyle]="{'width': 15 + orientation}" src="assets/suj/terricola1.png" alt="" srcset="">
+    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 32 + orientation, 'left': 40 + orientation}" *ngIf="isla.poblacion >= 1">
+        <img [ngStyle]="{'width': 7.5 + orientation}" src="assets/suj/terricola1.png" alt="" srcset="">
     </div>
     <div class="objeto objeto-poblacion" [ngStyle]="{'top': 40 + orientation, 'left': 65 + orientation}" *ngIf="isla.poblacion >= 2">
-        <img [ngStyle]="{'width': 15 + orientation}" src="assets/suj/terricola2.png" alt="" srcset="">
+        <img [ngStyle]="{'width': 7.5 + orientation}" src="assets/suj/terricola2.png" alt="" srcset="">
     </div>
     <div class="objeto objeto-poblacion" [ngStyle]="{'top': 50 + orientation, 'left': 20 + orientation}" *ngIf="isla.poblacion >=3">
-        <img [ngStyle]="{'width': 15 + orientation}" src="assets/suj/terricola3.png" alt="" srcset="">
+        <img [ngStyle]="{'width': 5 + orientation}" src="assets/suj/terricola3.png" alt="" srcset="">
     </div>
-    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 60 + orientation, 'left': 55 + orientation}" *ngIf="isla.poblacion >= 4">
-        <img [ngStyle]="{'width': 15 + orientation}" src="assets/suj/terricola1.png" alt="" srcset="">
+    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 48 + orientation, 'left': 60 + orientation}" *ngIf="isla.poblacion >= 4">
+        <img [ngStyle]="{'width': 9 + orientation}" src="assets/suj/terricola1.png" alt="" srcset="">
     </div>
-    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 20 + orientation, 'left': 30 + orientation}" *ngIf="isla.poblacion >= 5">
-        <img [ngStyle]="{'width': 14 + orientation}" src="assets/suj/terricola2.png" alt="" srcset="">
+    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 34 + orientation, 'left': 28 + orientation}" *ngIf="isla.poblacion >= 5">
+        <img [ngStyle]="{'width': 8.5 + orientation}" src="assets/suj/terricola2.png" alt="" srcset="">
     </div>
-    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 21 + orientation, 'left': 50 + orientation}" *ngIf="isla.poblacion >= 6">
-        <img [ngStyle]="{'width': 10 + orientation}" src="assets/suj/terricola3.png" alt="" srcset="">
+    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 35 + orientation, 'left': 50 + orientation}" *ngIf="isla.poblacion >= 6">
+        <img [ngStyle]="{'width': 6 + orientation}" src="assets/suj/terricola3.png" alt="" srcset="">
     </div>
     <div class="objeto objeto-poblacion" [ngStyle]="{'top': 45 + orientation, 'left': 30 + orientation}" *ngIf="isla.poblacion >= 7">
-        <img [ngStyle]="{'width': 12 + orientation}" src="assets/suj/terricola1.png" alt="" srcset="">
+        <img [ngStyle]="{'width': 8 + orientation}" src="assets/suj/terricola1.png" alt="" srcset="">
     </div>
-    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 45 + orientation, 'left': 50 + orientation}" *ngIf="isla.poblacion >= 8">
-        <img [ngStyle]="{'width': 12 + orientation}" src="assets/suj/terricola2.png" alt="" srcset="">
+    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 47 + orientation, 'left': 50 + orientation}" *ngIf="isla.poblacion >= 8">
+        <img [ngStyle]="{'width': 8 + orientation}" src="assets/suj/terricola2.png" alt="" srcset="">
     </div>
-    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 55 + orientation, 'left': 40 + orientation}" *ngIf="isla.poblacion >= 9">
-        <img [ngStyle]="{'width': 9 + orientation}" src="assets/suj/terricola3.png" alt="" srcset="">
+    <div class="objeto objeto-poblacion" [ngStyle]="{'top': 50 + orientation, 'left': 40 + orientation}" *ngIf="isla.poblacion >= 9">
+        <img [ngStyle]="{'width': 6 + orientation}" src="assets/suj/terricola3.png" alt="" srcset="">
     </div>
     <div class="objeto objeto-poblacion" [ngStyle]="{'top': 40 + orientation, 'left': 80 + orientation}" *ngIf="isla.poblacion >= 10">
-        <img [ngStyle]="{'width': 12 + orientation}" src="assets/suj/terricola1.png" alt="" srcset="">
+        <img [ngStyle]="{'width': 7.5 + orientation}" src="assets/suj/terricola1.png" alt="" srcset="">
     </div>
 </div>
 
