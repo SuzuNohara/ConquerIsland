@@ -10,11 +10,17 @@ export class IslaComponent implements OnInit {
 
   public isla: Isla;
 
+  public size: number;
+  public orientation: string;// true = celular, false = laptop
+
   @Input() status: Isla;
 
   constructor() {
     this.isla = new Isla();
+    // parametros de testing
     this.status = new Isla();
+    this.size = window.innerWidth < window.innerHeight ? window.innerWidth: window.innerHeight;
+    this.orientation = window.innerWidth < window.innerHeight? 'vw': 'vh';
   }
 
   ngOnInit() {
