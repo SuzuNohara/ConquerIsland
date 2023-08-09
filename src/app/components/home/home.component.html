@@ -274,10 +274,28 @@
     </div>
   </div>
 </div>
-
-
+<!---->
+<div class="modal modal-dialog modal-lg fade" id="tabla" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2"></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+    <h1>INGRESA TU GAMERTAG</h1>
+    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+      <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+<!---->
 <div class="banner" *ngIf="banner"></div>
-<img *ngIf="startgame" src="assets/game/binev.png" class="game" alt="" srcset="">
-<img *ngIf="isla.victoria" src="assets/game/win.png" class="game" alt="" srcset="">
+<img *ngIf="isla.victoria" src="assets/game/binev.png" class="game" alt="" srcset="">
+<button type="button" class="btn btn-outline-primary btn--banner abs btn-lg" data-bs-toggle="modal" data-bs-target="#tabla" *ngIf="startgame">Informacion</button>
+<img *ngIf="startgame" src="assets/game/win.png" class="game" alt="" srcset="">
 <img *ngIf="!isla.isla_viva" src="assets/game/gameover.png" class="gameover" alt="" srcset="">
 <button type="button" class="btn btn-outline-primary btn--banner abs btn-lg" data-bs-toggle="modal" data-bs-target="#actions_modal" *ngIf="!isla.isla_viva || isla.victoria">Informacion</button>
