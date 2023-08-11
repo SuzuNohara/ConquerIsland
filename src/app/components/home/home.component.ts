@@ -3,6 +3,8 @@ import { Acciones, Controles_Isla, Isla, Produccion } from 'src/app/dto/Isla';
 import { IslaComponent } from '../isla/isla.component';
 import { GameService } from 'src/app/service/game.service';
 import { BackendService } from 'src/app/service/backend.service';
+import Swal from 'sweetalert2';
+
 declare var $:any;
 
 @Component({
@@ -111,15 +113,25 @@ export class HomeComponent implements OnInit{
   public saveData() {
     const userName = document.querySelector('.for-control') as HTMLInputElement;
     if (userName.value === '') {
-      alert('Input is empty. Please write something.');
+      Swal.fire({
+        icon: 'error',
+        title: '¡Error al subir el registro!',
+        text: 'Ingresa un nombre'
+      });
     } else {
       this.backend.saveScore(userName.value, this.isla.turno).then((data) => {
         if (data) {
           $('#info').modal('hide');
-          console.log('Se subió');
+          Swal.fire({
+            icon: 'success',
+            title: '¡Registro subido con éxito!',
+          });
         } else {
-          $('#info').modal('hide');
-          console.log('NO se subió');
+          Swal.fire({
+            icon: 'error',
+            title: '¡Error al subir el registro!',
+            text: 'Sin conexión a internet'
+          });
         }
       });
     }
