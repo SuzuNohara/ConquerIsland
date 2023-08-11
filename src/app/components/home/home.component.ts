@@ -3,6 +3,7 @@ import { Acciones, Controles_Isla, Isla, Produccion } from 'src/app/dto/Isla';
 import { IslaComponent } from '../isla/isla.component';
 import { GameService } from 'src/app/service/game.service';
 import { BackendService } from 'src/app/service/backend.service';
+declare var $:any;
 
 @Component({
   selector: 'app-home',
@@ -117,6 +118,7 @@ export class HomeComponent implements OnInit{
       }else{
         this.backend.saveScore(userName.value, this.isla.turno).then((data) => {
           if(data){
+            $('#info').modal('hide');
             console.log('Se subió');
           }else{
             console.log('NO se subió');
