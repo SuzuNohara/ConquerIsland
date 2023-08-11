@@ -108,24 +108,21 @@ export class HomeComponent implements OnInit{
     this.banner = true;
   }
 
-  public saveData(){
+  public saveData() {
     const userName = document.querySelector('.for-control') as HTMLInputElement;
-    const submitB = document.querySelector('.Reg-button');
-
-    submitB!.addEventListener('click', () => {
-      if(userName.value === ''){
-        alert('Input is empty. Please write smt');
-      }else{
-        this.backend.saveScore(userName.value, this.isla.turno).then((data) => {
-          if(data){
-            $('#info').modal('hide');
-            console.log('Se subió');
-          }else{
-            console.log('NO se subió');
-          }
-        });
-      }
-    });
+    if (userName.value === '') {
+      alert('Input is empty. Please write something.');
+    } else {
+      this.backend.saveScore(userName.value, this.isla.turno).then((data) => {
+        if (data) {
+          $('#info').modal('hide');
+          console.log('Se subió');
+        } else {
+          $('#info').modal('hide');
+          console.log('NO se subió');
+        }
+      });
+    }
   }
 
   public upval(act: number, inc: number){
