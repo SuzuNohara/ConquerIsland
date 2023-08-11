@@ -10,6 +10,7 @@ import { IslaComponent } from './components/isla/isla.component';
 import { PersonaComponent } from './isla/persona/persona.component';
 import { TecnologiaComponent } from './isla/tecnologia/tecnologia.component';
 import { GuiadejuegoComponent } from './guiadejuego/guiadejuego.component';
+import { TBposicionesComponent } from './tbposiciones/tbposiciones.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { GuiadejuegoComponent } from './guiadejuego/guiadejuego.component';
     IslaComponent,
     PersonaComponent,
     TecnologiaComponent,
-    GuiadejuegoComponent
+    GuiadejuegoComponent,
+    TBposicionesComponent
   ],
   imports: [
     BrowserModule,
