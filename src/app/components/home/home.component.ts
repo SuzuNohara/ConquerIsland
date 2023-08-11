@@ -105,11 +105,23 @@ export class HomeComponent implements OnInit{
 
   public victoria(){
     this.banner = true;
-    this.backend.saveScore("", this.isla.turno).then((data) => {
-      if(data){
-        // todo se guardo correctamente
+  }
+
+  public saveData(){
+    const userName = document.querySelector('.for-control') as HTMLInputElement;
+    const submitB = document.querySelector('.Reg-button');
+
+    submitB!.addEventListener('click', () => {
+      if(userName.value === ''){
+        alert('Input is empty. Please write smt');
       }else{
-        // no se guardaron los datos
+        this.backend.saveScore(userName.value, this.isla.turno).then((data) => {
+          if(data){
+            console.log('Se subió');
+          }else{
+            console.log('NO se subió');
+          }
+        });
       }
     });
   }
