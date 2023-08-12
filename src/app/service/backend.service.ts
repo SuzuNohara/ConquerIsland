@@ -24,6 +24,25 @@ export class BackendService {
     });
   }
 
+  public getRanking(): Promise<Puntuacion[]>{
+    let puntuacion: Puntuacion[] = [];
+    return new Promise((resolve) => {
+      this.data.getCollection(environment.puntuaciones).then((data) => {
+        let dats = data.docs.map(doc => doc.data());
+        for(let i = 0; i < dats.length; i++){
+          let dat = dats[i];
+          let user: Puntuacion = new Puntuacion();
+          user.nombre = dat['nombre'];
+          user.opinion = dat['opinion'];
+          user.turnos = dat['turnos'];
+          puntuacion.push(user);
+        }
+        this.quickSort(puntuacion, 0, puntuacion.length - 1);
+        resolve(puntuacion);
+      });
+    });
+  }
+
   public getScore(puntuaciones: Puntuacion[]): Promise<Puntuacion[]>{
     return new Promise((resolve) => {
       this.quickSort(puntuaciones, 0, puntuaciones.length - 1);
