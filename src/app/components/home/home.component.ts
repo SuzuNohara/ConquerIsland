@@ -105,6 +105,7 @@ export class HomeComponent implements OnInit{
 
   public victoria(){
     this.banner = true;
+    // banner de victoria donde pide el nombre
     this.backend.saveScore("", this.isla.turno).then((data) => {
       if(data){
         // todo se guardo correctamente

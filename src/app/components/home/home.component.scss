@@ -445,4 +445,9 @@ label{
     height: 3vw;
 }
 
-
+.info-panel{
+    position: absolute;
+    top: 20vh;
+    right: 5vw;
+    z-index: 400;//300
+}
