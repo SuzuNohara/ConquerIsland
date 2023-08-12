@@ -13,16 +13,17 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    height: 90px;
+    height: 100px;
     padding: 5px 10%;
 }
 .header .logo {
     margin-right: auto;
 }
 .header .logo img {
-    height: 70px;
+    height: 100px;
     width: auto;
     transition: all 0.3s;
+    margin-top: 22%;
 }
 
 .header .logo img:hover {
@@ -66,6 +67,9 @@
     background-color: #e2f1f8;
     color: #eceff1;
     transform: scale(1.1);
+}
+.nav-iconos{
+    width: 60px;
 }
 
 /*GUIA DE JUEGO*/

@@ -39,11 +39,11 @@
     </div>
     <nav>
       <ul class="nav-links">
-        <li><a routerLink="/tbposiciones">Ranking</a></li>
-        <li><a routerLink="/guiadejuego">Guia de Juego</a></li>
+        <li><a routerLink="/tbposiciones"><img src="/assets/ICONOS/iconos/indicador_opcion1.png" class="nav-iconos"></a></li>
+        <li><a routerLink="/guiadejuego"><img src="/assets/ICONOS/iconos/instrucciones.png" class="nav-iconos"></a></li>
+        <li> <a (click)="newGame()"><img src="/assets/ICONOS/iconos/iniciar.png" class="nav-iconos"></a></li>
       </ul>
     </nav>
-    <a class="btn"><button (click)="newGame()">New Game</button></a>
   </header>
  <div class="i-content" [ngStyle]="{'margin-left': center + 'px'}" [ngClass]="{'i-width': orientation, 'i-height': !orientation}">
     <app-isla [status]="isla"></app-isla>
@@ -290,7 +290,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <img src="/assets/frases/conquistador.png" class="img-registro">
+        <img src="/assets/TITULOS/conquistador.png" class="img-registro">
         <input type="text" class="for-control" placeholder="Nombre del Conquistador" aria-label="Username">
  
       </div>
