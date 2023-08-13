@@ -95,3 +95,23 @@
     width: 1000px;
     margin-left: 18%;
 }
+
+.pagination {
+  margin-top: 30px;
+  text-align: center;
+  position: fixed;
+
+  .btn-link {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
