@@ -11,23 +11,25 @@
         </nav>
       </header>
         <img src="/assets/TITULOS/victoria.png" class="img-tit">
-        <table class="table table-hover table-dark table-tam">
+        <img src="/assets/4 ciudad_futurista/isla_poblada/poblacion.png" class="img-deco-isla1">
+        <div class="container">
+        <table>
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nombre</th>
+              <th>#</th>
+              <th>Nombre</th>
               <th scope="col">Puntuacion</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let r of getCurrentPageItems(); let i = index">
-              <th scope="row">{{ i + 1 + currentPage * itemsPerPage }}</th>
+              <th>{{ i + 1 + currentPage * itemsPerPage }}</th>
               <td>{{ r.nombre }}</td>
               <td>{{ r.turnos }}</td>
             </tr>
           </tbody>
         </table>
-      
+      </div>
         <div class="pagination">
           <button
             class="btn btn-link"
@@ -37,4 +39,6 @@
           {{ page + 1 }}  <!--Array al que pertenece -->
           </button>
         </div>
+        
+        <img src="/assets/edad1/terricola_elementos.png" class="img-deco-isla2">
       </div>
