@@ -2,7 +2,8 @@
     <div class="action row">
         <div class="col">
             <button class="btn btn btn-dark btn-action" (click)="add(1)">
-                Infraestructura
+                <img *ngIf="md" src="assets/iconos/controles/infraestructura.svg" class="act-icon" srcset="">
+                <p *ngIf="!md">Infraestructura</p>
             </button>
         </div>
         <div class="col" (click)="rem(1)">
@@ -14,7 +15,8 @@
     <div class="action row">
         <div class="col">
             <button class="btn btn btn-dark btn-action" (click)="add(2)">
-                Educacion
+                <img *ngIf="md" src="assets/iconos/controles/education.svg" class="act-icon" srcset="">
+                <p *ngIf="!md">Educacion</p>
             </button>
         </div>
         <div class="col" (click)="rem(2)">
@@ -26,7 +28,8 @@
     <div class="action row">
         <div class="col">
             <button class="btn btn btn-dark btn-action" (click)="add(3)">
-                Interno
+                <img *ngIf="md" src="assets/iconos/controles/inversion.png" class="act-icon" srcset="">
+                <p *ngIf="!md">Inversion interna</p>
             </button>
         </div>
         <div class="col" (click)="rem(3)">
@@ -38,7 +41,8 @@
     <div class="action row">
         <div class="col">
             <button class="btn btn btn-dark btn-action" (click)="add(4)">
-                Tecnologia
+                <img *ngIf="md" src="assets/iconos/controles/technologia.svg" class="act-icon" srcset="">
+                <p *ngIf="!md">Tecnologia</p>
             </button>
         </div>
         <div class="col" (click)="rem(4)">
@@ -50,7 +54,8 @@
     <div class="action row">
         <div class="col">
             <button class="btn btn btn-dark btn-action" (click)="add(5)">
-                Militar
+                <img *ngIf="md" src="assets/iconos/controles/militar.svg" class="act-icon" srcset="">
+                <p *ngIf="!md">Militar</p>
             </button>
         </div>
         <div class="col" (click)="rem(5)">
@@ -62,7 +67,8 @@
     <div class="action row">
         <div class="col">
             <button class="btn btn btn-dark btn-action" (click)="add(6)">
-                Servicios
+                <img *ngIf="md" src="assets/iconos/controles/servicios.svg" class="act-icon" srcset="">
+                <p *ngIf="!md">Servicios</p>
             </button>
         </div>
         <div class="col" (click)="rem(6)">
@@ -73,8 +79,9 @@
     </div>
     <div class="action row">
         <div class="col">
-            <button class="btn btn btn-success btn-action" (click)="terminarTurno()">
-                Turno
+            <button class="btn btn btn-dark btn-action" (click)="terminarTurno()">
+                <img *ngIf="md" src="assets/iconos/controles/play.svg" class="act-icon" srcset="">
+                <p *ngIf="!md">Play</p>
             </button>
         </div>
     </div>

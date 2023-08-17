@@ -14,6 +14,9 @@ export class ActionsComponent {
   public tec: number;
   public mili: number;
   public serv: number;
+
+  public size: number;
+  public md: boolean;
   
   @Output('turno') turno = new EventEmitter<Acciones>();
 
@@ -24,6 +27,8 @@ export class ActionsComponent {
     this.tec = 0;
     this.mili = 0;
     this.serv = 0;
+    this.size = window.innerWidth < window.innerHeight ? window.innerWidth: window.innerHeight;
+    this.md = window.innerWidth < window.innerHeight;
   }
 
   add(filter: number){
