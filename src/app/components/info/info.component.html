@@ -1,122 +1,122 @@
-<div class="cont-info">
+<div class="cont-info" *ngIf="md">
     <table class="table table-dark">
         <thead>
             <tr>
                 <td>
-                    <h3>Informacion</h3>
+                    <h5>Informacion</h5>
                 </td>
                 <td colspan="4" style="text-align: right;">
-                    Turno: <span class="badge bg-secondary">{{ isla.turno }}</span>
+                    Turno: <span class="badge bg-secondary">{{ status.turno }}</span>
                 </td>
             </tr>
         </thead>
+    </table>
+    <table class="table table-dark">
         <tbody>
             <tr class="table-active">
-                <td>Poblacion:</td>
-                <td>
+                <td class="name">Recursos:</td>
+                <td class="progress-cont">
                     <div class="progress-container">
-                        <progress class="progress-bar" value="10" max="100"></progress>
+                        <progress class="progress-bar" [value]="status.recursos_naturales" max="10"></progress>
+                    </div>
+                    <div class="progress-container">
+                        <progress class="progress-bar" [value]="status.reservas_recursos" max="10"></progress>
                     </div>
                 </td>
-                <td>Infraestructura:</td>
-                <td>
+                <td class="name">Dinero:</td>
+                <td class="progress-cont">
                     <div class="progress-container">
-                        <progress class="progress-bar" value="10" max="100"></progress>
+                        <progress class="progress-bar" [value]="status.dinero" max="10"></progress>
                     </div>
-                </td>
-            </tr>
-            <tr class="table-active">
-                <td>Servicios:</td>
-                <td>
                     <div class="progress-container">
-                        <progress class="progress-bar" value="10" max="100"></progress>
-                    </div>
-                </td>
-            </tr>
-            <tr class="table-active">
-                <td>Dinero:</td>
-                <td>
-                    <div class="progress-container">
-                        <progress class="progress-bar" value="10" max="100"></progress>
-                    </div>
-                </td>
-                <td>Reservas de dinero:</td>
-                <td>
-                    <div class="progress-container">
-                        <progress class="progress-bar" value="10" max="100"></progress>
+                        <progress class="progress-bar" [value]="status.reservas_dinero" max="10"></progress>
                     </div>
                 </td>
             </tr>
+        </tbody>
+    </table>
+    <table class="table table-dark">
+        <tbody>
             <tr class="table-active">
-                <td>Recursos Naturales:</td>
-                <td>
+                <td class="name">Poblacion:</td>
+                <td class="progress-cont">
                     <div class="progress-container">
-                        <progress class="progress-bar" value="10" max="100"></progress>
+                        <progress class="progress-bar" [value]="status.poblacion" max="10"></progress>
                     </div>
                 </td>
-                <td>Reservas de recursos:</td>
-                <td>
+                <td class="name">Infra:</td>
+                <td class="progress-cont">
                     <div class="progress-container">
-                        <progress class="progress-bar" value="10" max="100"></progress>
+                        <progress class="progress-bar" [value]="status.inversion.infraestructura" max="10"></progress>
                     </div>
                 </td>
-              </tr>
-              <tr class="table-active"> 
-                <td>Educacion:</td>
-                <td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-dark">
+        <tbody>
+            <tr class="table-active">
+                <td class="name">Educacion:</td>
+                <td class="progress-cont">
                     <div class="progress-container">
-                        <progress class="progress-bar" value="10" max="100"></progress>
+                        <progress class="progress-bar" [value]="status.inversion.educacion" max="10"></progress>
                     </div>
                 </td>
-                <td>Inversion interna:</td>
-                <td>
+                <td class="name">Inv. Interna:</td>
+                <td class="progress-cont">
                     <div class="progress-container">
-                        <progress class="progress-bar" value="10" max="100"></progress>
+                        <progress class="progress-bar" [value]="status.inversion.inversion_interna" max="10"></progress>
                     </div>
                 </td>
-              </tr>
-              <tr class="table-active">
-                <td>Alimentos:</td>
-                <td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-dark">
+        <tbody>
+            <tr class="table-active">
+                <td class="name">Alimentos:</td>
+                <td class="progress-cont">
                     <div class="progress-container">
-                        <progress class="progress-bar" value="10" max="100"></progress>
+                        <progress class="progress-bar" [value]="status.inversion.produccion_interna.alimentos" max="10">{{ status.inversion.produccion_interna.alimentos }}</progress>
+                    </div>
+                    <div class="progress-container">
+                        <progress class="progress-bar" [value]="status.inversion.produccion_interna.alimentos_ex" max="10">{{ status.inversion.produccion_interna.alimentos_ex }}</progress>
                     </div>
                 </td>
-                <td>Reservas alimentos:</td>
-                <td>
+                <td class="name">Tecnologia:</td>
+                <td class="progress-cont">
                     <div class="progress-container">
-                        <progress class="progress-bar" value="10" max="100"></progress>
+                        <progress class="progress-bar" [value]="status.inversion.produccion_interna.tecnologia" max="10"></progress>
+                    </div>
+                    <div class="progress-container">
+                        <progress class="progress-bar" [value]="status.inversion.produccion_interna.tecnologia_ex" max="10"></progress>
                     </div>
                 </td>
-              </tr>
-              <tr class="table-active"> 
-                <td>Mitilar:</td>
-                <td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-dark">
+        <tbody>
+            <tr class="table-active">
+                <td class="name">Militar:</td>
+                <td class="progress-cont">
                     <div class="progress-container">
-                        <progress class="progress-bar" value="10" max="100"></progress>
+                        <progress class="progress-bar" [value]="status.inversion.produccion_interna.militar" max="10"></progress>
+                    </div>
+                    <div class="progress-container">
+                        <progress class="progress-bar" [value]="status.inversion.produccion_interna.militar_ex" max="10"></progress>
                     </div>
                 </td>
-                <td>Reservas Militares:</td>
-                <td>
+                <td class="name">Servicios:</td>
+                <td class="progress-cont">
                     <div class="progress-container">
-                        <progress class="progress-bar" value="10" max="100"></progress>
+                        <progress class="progress-bar" [value]="status.inversion.produccion_interna.servicios" max="10"></progress>
                     </div>
+                    <!-- <div class="progress-container">
+                        <progress class="progress-bar" [value]="status.inversion.produccion_interna." max="10"></progress>
+                    </div> -->
                 </td>
-              </tr>
-              <tr class="table-active">
-                <td>Tecnologia:</td>
-                <td>
-                    <div class="progress-container">
-                        <progress class="progress-bar" value="10" max="100"></progress>
-                    </div>
-                </td>
-                <td>Reservas Tecnologicas:</td>
-                <td>
-                    <div class="progress-container">
-                        <progress class="progress-bar" value="10" max="100"></progress>
-                    </div>
-                </td>
-              </tr>
+            </tr>
         </tbody>
     </table>
 </div>

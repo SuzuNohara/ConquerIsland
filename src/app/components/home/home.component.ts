@@ -3,6 +3,7 @@ import { Acciones, Controles_Isla, Isla, Produccion } from 'src/app/dto/Isla';
 import { IslaComponent } from '../isla/isla.component';
 import { GameService } from 'src/app/service/game.service';
 import { BackendService } from 'src/app/service/backend.service';
+import { InfoComponent } from '../info/info.component';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit{
   public banner: boolean;
   public startgame: boolean;
   @ViewChild(IslaComponent) isComp!: IslaComponent;
+  @ViewChild(InfoComponent) infoComp!: InfoComponent;
   public size: number;
   public center: number;
   public orientation: boolean;// true = celular, false = laptop
@@ -74,11 +76,12 @@ export class HomeComponent implements OnInit{
     }
   }
   
-  public terminarTurno(){
-    if(this.game.Comprobar(this.isla, this.actions)){
-      this.isla = this.game.turno(this.isla, this.actions);
+  public terminarTurno(actions: Acciones){
+    if(this.game.Comprobar(this.isla, actions)){
+      this.isla = this.game.turno(this.isla, actions);
       this.isComp.updateIsla(this.isla);
-      this.actions = new Acciones();
+      this.infoComp.updateIsla(this.isla);
+      // this.actions = new Acciones();
       if(!this.isla.isla_viva){
         this.gameOver();
       }

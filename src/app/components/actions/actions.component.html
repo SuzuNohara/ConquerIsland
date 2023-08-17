@@ -1,0 +1,81 @@
+<div class="main-container">
+    <div class="action row">
+        <div class="col">
+            <button class="btn btn btn-dark btn-action" (click)="add(1)">
+                Infraestructura
+            </button>
+        </div>
+        <div class="col" (click)="rem(1)">
+            <span *ngIf="infra > 0" class="badge bg-danger">
+                <h5>+ {{ infra }}</h5>
+            </span>
+        </div>
+    </div>
+    <div class="action row">
+        <div class="col">
+            <button class="btn btn btn-dark btn-action" (click)="add(2)">
+                Educacion
+            </button>
+        </div>
+        <div class="col" (click)="rem(2)">
+            <span *ngIf="edu > 0" class="badge bg-danger">
+                <h5>+ {{ edu }}</h5>
+            </span>
+        </div>
+    </div>
+    <div class="action row">
+        <div class="col">
+            <button class="btn btn btn-dark btn-action" (click)="add(3)">
+                Interno
+            </button>
+        </div>
+        <div class="col" (click)="rem(3)">
+            <span *ngIf="interno > 0" class="badge bg-danger">
+                <h5>+ {{ interno }}</h5>
+            </span>
+        </div>
+    </div>
+    <div class="action row">
+        <div class="col">
+            <button class="btn btn btn-dark btn-action" (click)="add(4)">
+                Tecnologia
+            </button>
+        </div>
+        <div class="col" (click)="rem(4)">
+            <span *ngIf="tec > 0" class="badge bg-danger">
+                <h5>+ {{ tec }}</h5>
+            </span>
+        </div>
+    </div>
+    <div class="action row">
+        <div class="col">
+            <button class="btn btn btn-dark btn-action" (click)="add(5)">
+                Militar
+            </button>
+        </div>
+        <div class="col" (click)="rem(5)">
+            <span *ngIf="mili > 0" class="badge bg-danger">
+                <h5>+ {{ mili }}</h5>
+            </span>
+        </div>
+    </div>
+    <div class="action row">
+        <div class="col">
+            <button class="btn btn btn-dark btn-action" (click)="add(6)">
+                Servicios
+            </button>
+        </div>
+        <div class="col" (click)="rem(6)">
+            <span *ngIf="serv > 0" class="badge bg-danger">
+                <h5>+ {{ serv }}</h5>
+            </span>
+        </div>
+    </div>
+    <div class="action row">
+        <div class="col">
+            <button class="btn btn btn-dark btn-action" (click)="terminarTurno()">
+                Turno
+            </button>
+        </div>
+    </div>
+</div>

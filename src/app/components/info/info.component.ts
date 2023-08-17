@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Isla } from 'src/app/dto/Isla';
 
 @Component({
@@ -8,13 +8,19 @@ import { Isla } from 'src/app/dto/Isla';
 })
 export class InfoComponent {
 
-    public isla: Isla;
+  @Input() status: Isla;
+  public md: boolean;
+  public size: number;
+  public orientation: string;
 
-    constructor() {
-      this.isla = new Isla();
-    }
+  constructor() {
+    this.status = new Isla();
+    this.md = true;
+    this.size = window.innerWidth < window.innerHeight ? window.innerWidth: window.innerHeight;
+    this.orientation = window.innerWidth < window.innerHeight? 'vw': 'vh';
+  }
 
-    public updateIsla( isla: Isla){
-      this.isla = isla;
-    }
+  public updateIsla( isla: Isla){
+    this.status = isla;
+  }
 }

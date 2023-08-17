@@ -1,16 +1,18 @@
 .cont-info{
-    width: 45vw;
+    max-width: 600px;
+    width: 80vw;
     z-index: 100;
     border: #333 solid 1px;
     padding: 20px;
     background-color: #333;
+    padding: 0px;
 }
 .progress-container {
-    margin-top: 7%;
-    margin-bottom: 3%;
+    margin-top: 5px;
+    margin-top: 5px;
     margin-left: 3%;
-    width: 150px;
-    height: 20px;
+    width: 100%;
+    height: 10px;
     border: 1px solid #6A68EF;
     border-radius: 5px;
     overflow: hidden;
@@ -28,4 +30,20 @@
 /* For Firefox */
 .progress-bar::-moz-progress-bar {
     background-color:#C04BF2;
+}
+
+table{
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+td.name{
+    width: 100px;
+}
+
+td.progress-cont{
+    padding: 0px;
+    padding-bottom: 10px;
+    padding-right: 30px;
 }
