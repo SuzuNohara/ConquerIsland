@@ -12,6 +12,8 @@ import { TecnologiaComponent } from './isla/tecnologia/tecnologia.component';
 import { GuiadejuegoComponent } from './guiadejuego/guiadejuego.component';
 import { InfoComponent } from './components/info/info.component';
 import { ActionsComponent } from './components/actions/actions.component';
+import { TBposicionesComponent } from './tbposiciones/tbposiciones.component';
+
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { ActionsComponent } from './components/actions/actions.component';
     TecnologiaComponent,
     GuiadejuegoComponent,
     InfoComponent,
-    ActionsComponent
+    ActionsComponent,
+    TBposicionesComponent
+
   ],
   imports: [
     BrowserModule,

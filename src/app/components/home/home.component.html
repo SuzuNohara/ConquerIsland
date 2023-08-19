@@ -4,56 +4,22 @@
 <div class="contenido-principal">
   <header class="header">
     <div class="logo">
-      <div class="tooltip-container">
-        <span class="tooltip-trigger"><img src="assets/logg/logg/logo_op1.png" alt="Logo de la marca" class="activador-tooltip"></span>
-        <div class="tooltip-content">
-          <span class="tool-titulo">Objetivo:</span>
-          <div class="tool-cont">
-            Hacer progresar tu isla desde 0, usando los recursos disponibles y maximizando los indicadores económicos en pocos turnos.
-          </div>
-          <span class="tool-titulo">Acciones disponibles:</span>
-          <div class="tool-cont">
-            <ul class="lista-ul">
-              <li>
-               <span class="list"> Inversión en Infraestructura:</span> Aumenta población y producción de alimentos en 1 unidad.
-              </li>
-              <li>
-                <span class="list">Inversión en Infraestructura:</span> Aumenta población y producción de alimentos en 1 unidad.
-              </li>
-              <li>
-                <span class="list">Inversión en Educación:</span> Invirtiendo en Tecnología.
-              </li>
-              <li>
-                <span class="list"> Inversión Interna:</span> Produce 0.5 de dinero por punto invertido.
-              </li>
-              <li>
-                <span class="list"> Inversión en Tecnología:</span> Mejora la capacidad para invertir en lo militar (consume 1 alimento).
-              </li>
-              <li>
-                <span class="list">Inversión Militar:</span> Defiende tu isla de ataques.
-              </li>
-              <li>
-                <span class="list">Inversión en Servicios:</span> Genera alimentos y crea relaciones con otros países.
-              </li>
-            </ul>
-          </div>  
-        </div>
+      <img src="/assets/LOGOS/logo_op1.png" alt="Logo de la marca">
     </div>
-    </div>
-    <nav>
-      <ul class="nav-links">
-        <li><a routerLink="/guiadejuego">Guia de Juego</a></li>
-      </ul>
-    </nav>
-    <a class="btn"><button (click)="newGame()">New Game</button></a>
+  <nav>
+    <ul class="nav-link">
+      <li><a routerLink="/tbposiciones" class="nav-link"><img src="/assets/ICONOS/iconos/medidor.png" alt="Raking" class="nav-raking"></a></li>
+      <li><a routerLink="/guiadejuego" class="nav-link"><img src="/assets/ICONOS/iconos/info.png" alt="Guia" class="nav-guia" ></a></li>
+      <li><a (click)="newGame()" class="nav-link"><img src="/assets/ICONOS/iconos/play.png" alt="New Game" class="nav-play"></a></li>
+    </ul>
+  </nav> 
   </header>
  <div class="i-content" [ngStyle]="{'margin-left': center + 'px'}" [ngClass]="{'i-width': orientation, 'i-height': !orientation}">
     <app-isla [status]="isla"></app-isla>
   </div>
-
 </div>
-
 <div class="banner" *ngIf="banner"></div>
 <img *ngIf="startgame" src="assets/game/binev.png" class="game" alt="" srcset="">
 <img *ngIf="isla.victoria" src="assets/game/win.png" class="game" alt="" srcset="">
 <img *ngIf="!isla.isla_viva" src="assets/game/gameover.png" class="gameover" alt="" srcset="">
+

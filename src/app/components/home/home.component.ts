@@ -4,6 +4,9 @@ import { IslaComponent } from '../isla/isla.component';
 import { GameService } from 'src/app/service/game.service';
 import { BackendService } from 'src/app/service/backend.service';
 import { InfoComponent } from '../info/info.component';
+import Swal from 'sweetalert2';
+
+declare var $:any;
 
 @Component({
   selector: 'app-home',
@@ -116,6 +119,33 @@ export class HomeComponent implements OnInit{
         // no se guardaron los datos
       }
     });
+  }
+
+  public saveData() {
+    const userName = document.querySelector('.for-control') as HTMLInputElement;
+    if (userName.value === '') {
+      Swal.fire({
+        icon: 'error',
+        title: '¡Error al subir el registro!',
+        text: 'Ingresa un nombre'
+      });
+    } else {
+      this.backend.saveScore(userName.value, this.isla.turno).then((data) => {
+        if (data) {
+          $('#info').modal('hide');
+          Swal.fire({
+            icon: 'success',
+            title: '¡Registro subido con éxito!',
+          });
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: '¡Error al subir el registro!',
+            text: 'Sin conexión a internet'
+          });
+        }
+      });
+    }
   }
 
   public upval(act: number, inc: number){

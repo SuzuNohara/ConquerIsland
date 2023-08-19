@@ -1,0 +1,44 @@
+<div class="contenido-principal">
+    <header class="header">
+        <div class="logo">
+          <a routerLink="/" class="back-button">
+            <div class="arrow"></div></a>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li class="guia">Ranking</li>
+          </ul>
+        </nav>
+      </header>
+        <img src="/assets/TITULOS/victoria.png" class="img-tit">
+        <img src="/assets/4 ciudad_futurista/isla_poblada/poblacion.png" class="img-deco-isla1">
+        <div class="container">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th scope="col">Puntuacion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let r of getCurrentPageItems(); let i = index">
+              <th>{{ i + 1 + currentPage * itemsPerPage }}</th>
+              <td>{{ r.nombre }}</td>
+              <td>{{ r.turnos }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+        <div class="pagination">
+          <button
+            class="btn btn-link"
+            *ngFor="let page of getPaginationArray()"
+            (click)="onPageChange(page)"
+          >
+          {{ page + 1 }}  <!--Array al que pertenece -->
+          </button>
+        </div>
+        
+        <img src="/assets/edad1/terricola_elementos.png" class="img-deco-isla2">
+      </div>
