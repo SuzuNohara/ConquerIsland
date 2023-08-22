@@ -1,5 +1,6 @@
-<app-info [ngStyle]="{'z-index': 100 * (!isla.isla_viva || isla.victoria ? 4 : 3), 'margin-top': (!isla.isla_viva || isla.victoria ? '50vh' : '0vh')}" class="info-panel"></app-info>
 <app-actions (turno)="terminarTurno($event)" class="action-panel"></app-actions>
+<app-info [ngStyle]="{'z-index': 100 * (!isla.isla_viva || isla.victoria ? 4 : 3), 'margin-top': (!isla.isla_viva || isla.victoria ? '5000vh' : '0vh')}" class="info-panel"></app-info>
+
 
 <div class="contenido-principal">
   <header class="header">
@@ -18,8 +19,8 @@
     <app-isla [status]="isla"></app-isla>
   </div>
 </div>
-<div class="banner" *ngIf="banner"></div>
+<!--<div class="banner" *ngIf="banner"></div>
 <img *ngIf="startgame" src="assets/game/binev.png" class="game" alt="" srcset="">
 <img *ngIf="isla.victoria" src="assets/game/win.png" class="game" alt="" srcset="">
-<img *ngIf="!isla.isla_viva" src="assets/game/gameover.png" class="gameover" alt="" srcset="">
+<img *ngIf="!isla.isla_viva" src="assets/game/gameover.png" class="gameover" alt="" srcset="">-->
 
